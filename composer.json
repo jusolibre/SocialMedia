@@ -1,0 +1,14 @@
+{
+    "name": "jusolibre/socialmedia",
+    "description": "project de creation de réseau social",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jusolibre",
+            "email": "julien.sobritz@epitech.eu"
+        }
+    ],
+    "require": {
+        "twig/twig": "~2.0"
+    }
+}
