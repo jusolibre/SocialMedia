@@ -34,7 +34,7 @@
 			$datas = $req->fetchAll(PDO::FETCH_OBJ);
 			var_dump($datas);
 			return $datas;
-
+ 
 		}
             //Envois les les users
 		public function addUser($password, $username, $email) {
