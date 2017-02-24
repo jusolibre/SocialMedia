@@ -16,7 +16,7 @@
 			$this->db_host = $db_host;
 		}
 
-		private function getPDO(){ //guetteur 
+			private function getPDO(){ //guetteur 
 			$pdo = new PDO('mysql:dbname=socialmedia;host=localhost', 'root', 'online');
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	
 			$this->pdo = $pdo;
@@ -24,8 +24,8 @@
 		}
 
 
-		//Recupere les infos du profil pour les affichers
-		public function get_profil($statement){
+			//Recupere les infos du profil
+			public function get_profil($statement){
 
 			$req = $this->getPDO()->query($statement);
 			$datas = $req->fetchAll(PDO::FETCH_OBJ);
@@ -33,7 +33,9 @@
 			return $datas;
 
 		}
-	}	
+
+	}
+
 
 
 ?>
