@@ -1,3 +1,73 @@
-<h2>Header</h2>
+<!DOCTYPE>
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheet/layout.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default custom-navbar">
+    <div class="container-fluid">
+        <div class="col-sm-12">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand myHeaderSoloLink" href="#">HackMedia</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <div class="col-sm-12 col-md-12">
+                    <div class="col-sm-4 col-md-4">
+                        <ul class="nav navbar-nav">
+                            <li><a href="?p=home" class="myHeaderLink">Home</a></li>
+                            <li><a href="?p=profil" class="myHeaderLink">Profil</a></li>
+                            <li><a href="?p=friendlist" class="myHeaderLink">Amis</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-3 col-md-3">
+                        <ul class="nav navbar-nav navbar-center">
+                            <li>
+                                <form class="navbar-form collapse-search">
+                                    <div class="form-group collapse-search-left">
+                                        <input type="text" class="form-control search-elem" placeholder="Search">
+                                    </div>
+                                    <div class="form-group collapse-search-right">
+                                        <button type="submit" class="btn btn-default search-elem">Submit</button>
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-5 col-md-5">
+                        <ul class="nav navbar-nav navbar-right">
+                            {% if logged == false %}
+                                <li><a href="#" class="myHeaderLink"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                <li><a href="#" class="myHeaderLink"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            {% else %}
+                                <li><a href="?p=manage">Gestion de compte</a></li>
+                                <li><a href="#" class="myHeaderLink"><span class="glyphicon glyphicon-log-out">Deconnection</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
 {% block content %}{% endblock %}
-<h2>Footer</h2>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
