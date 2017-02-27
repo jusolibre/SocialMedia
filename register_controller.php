@@ -18,12 +18,12 @@
       if (empty($errors)){
         require('class_connect.php');
 
-          $req = $pdo-> prepare("INSERT INTO compte SET username = ?, password = ?, email = ?");
-          $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-          $req->execute([$_POST['username'], $password, $_POST['email']]);
+          $pdo = new Database('socialmedia');
 
-          die("Votre username à bien été créer !");
+          $pdo->addUser($_POST["password"], $_POST["username"], $_POST["email"]);
+
       }
     }
     
+  ?>
   ?>
