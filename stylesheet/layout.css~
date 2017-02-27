@@ -1,0 +1,27 @@
+.myHeaderSoloLink {
+    text-align: center;
+}
+
+#container {
+    color: #FFFFFF;
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+}
+
+.form-padding {
+    padding-top: 20px;
+}
+
+.btn-primaryy {
+    background-color: #FFFFF;
+    color: #000000;
+    margin-top: 20px;
+}
+
+.btn-primaryy:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+    margin-top: 20px;
+}
