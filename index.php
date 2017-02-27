@@ -55,6 +55,14 @@ switch ($page) {
             'Nom' => 'Sobritz'
         ]]);
         break;
+    case 'complement':
+        echo $twig->render('complement.twig', [
+            'logged' => true,
+            'person' => [
+            'Prenom' => 'julien',
+            'Nom' => 'Sobritz'
+        ]]);
+        break;
     case 'home':
         echo $twig->render('home.twig', [
             'logged' => true,
