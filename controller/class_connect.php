@@ -31,18 +31,42 @@ class Database{
         $req->execute(array($email));
         return $this->pdo->lastInsertId();
     }
+
+    // function pour generer un token à chaque nouveaux membre validation par email
+    public function str_random ($lenght){
+        $alpha = '0123456789azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN';
+        $tmp = substr(str_shuffle(str_repeat($alpha, $lenght)), 0, $lenght);
+        echo($tmp);
+        return $tmp;
+    }
+
+
     //Envois les les users
     public function addUser($password, $username, $email) {
         $id = $this->addUtilisateur($email);
-        $req = $this->pdo->prepare('INSERT INTO compte SET username = ?, password = ?, email = ?, id_utilisateur = ?');
+        $req = $this->pdo->prepare('INSERT INTO compte SET username = ?, password = ?, email = ?, id_utilisateur = ? confirmation_token = ?');
         $newPassword = password_hash($password, PASSWORD_BCRYPT);
-        $req->execute(array($username, $newPassword, $email, $id));
-        return array($username, $newPassword, $email, $id);
+        $token = $this->str_random(60);
+        die();
+        $req->execute(array($username, $newPassword, $email, $id, $token));
+        $mail($_POST['email'],
+            'Confirmation de votre compte', "Pour le valider cliquer sur ce lien : \n \n http://localhost/new/SocialMedia/confirm.php?id=$username&token=$token");
+        $username = $pdo->lastInsertId;
+        return array($username, $newPassword, $email, $id, $token);
+        /*header('Location: login.php');*/
     }
 
     public function updateUtilisateur($nom, $prenom, $age, $date_naissance, $id){
         $req = $this->pdo->prepare('UPDATE utilisateur SET nom = ?, prenom = ?, age= ?, date_naissance = ? WHERE id= ?');
         $req->execute(array($nom, $prenom, $age, $date_naissance, $id));
     }
+
+
+
+
+
+
+
+
 }
 ?>
