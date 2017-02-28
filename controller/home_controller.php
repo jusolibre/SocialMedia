@@ -19,7 +19,6 @@ Class home {
             'asset' => ASSET,
             'js' => JS
         ]);
-
     }
 
 }
