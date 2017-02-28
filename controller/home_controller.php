@@ -17,7 +17,6 @@ Class home {
             'logged' => $_SESSION["logged"],
             'root' => WEBROOT
         ]);
-
     }
 
 }
