@@ -2,8 +2,10 @@
 <html>
 <head>
 
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="stylesheet/layout.css" type="text/css">
+    <link rel="stylesheet" href="{{ root }}stylesheet/layout.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
 
@@ -19,7 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand myHeaderSoloLink" href="#">HackMedia</a>
+                <a class="navbar-brand myHeaderSoloLink" href="index.php?p=home/home">HackMedia</a>
             </div>
         </div>
 
@@ -28,9 +30,9 @@
                 <div class="col-sm-12 col-md-12">
                     <div class="col-sm-4 col-md-4">
                         <ul class="nav navbar-nav">
-                            <li><a href="?p=home" class="myHeaderLink">Home</a></li>
-                            <li><a href="?p=profil" class="myHeaderLink">Profil</a></li>
-                            <li><a href="?p=friendlist" class="myHeaderLink">Amis</a></li>
+                            <li><a href="{{ root }}home" class="myHeaderLink">Home</a></li>
+                            <li><a href="{{ root }}profil" class="myHeaderLink">Profil</a></li>
+                            <li><a href="{{ root }}friendlist" class="myHeaderLink">Amis</a></li>
                         </ul>
                     </div>
 
@@ -52,11 +54,11 @@
                     <div class="col-sm-5 col-md-5">
                         <ul class="nav navbar-nav navbar-right">
                             {% if logged == false %}
-                                <li><a href="#" class="myHeaderLink"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                                <li><a href="#" class="myHeaderLink"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                <li><a href="{{ root }}register" class="myHeaderLink"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                <li><a href="{{ root }}connection" class="myHeaderLink"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                             {% else %}
-                                <li><a href="?p=manage">Gestion de compte</a></li>
-                                <li><a href="#" class="myHeaderLink"><span class="glyphicon glyphicon-log-out">Deconnection</a></li>
+                                <li><a href="{{ root }}manage">Gestion de compte</a></li>
+                                <li><a href="{{ root }}deconnection" class="myHeaderLink"><span class="glyphicon glyphicon-log-out">Deconnection</a></li>
                             {% endif %}
                         </ul>
                     </div>
