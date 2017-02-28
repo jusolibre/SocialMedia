@@ -15,7 +15,9 @@ Class search {
 
         echo $twig->render('search.twig', [
             'logged' => $_SESSION["logged"],
-            'root' => WEBROOT
+            'root' => WEBROOT,
+            'asset' => ASSET,
+            'js' => JS
         ]);
 
     }

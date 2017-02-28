@@ -4,7 +4,20 @@ require_once("Class/class_twig.php");
 
 Class register {
 
-    function inscrition()
+    private function myRender() {
+
+        $twig = myTwig::create();
+
+        echo $twig->render('register.twig', [
+            'logged' => $_SESSION["logged"],
+            'root' => WEBROOT,
+            'asset' => ASSET,
+            'js' => JS
+        ]);
+
+    }
+
+    function insert()
     {
         if (!empty($_POST)) {
             $errors = array();
@@ -24,15 +37,19 @@ Class register {
             }
             else {
 
+                $this->myRender();
+
             }
+        } else {
+
+            $this->myRender();
+
         }
     }
 
     function index() {
-        echo $twig->render('register.twig', [
-            'logged' => true,
-            'root' => WEBROOT
-        ]);
+
+        $this->myRender();
     }
 
 }

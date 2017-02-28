@@ -31,7 +31,9 @@ Class complement {
 
         echo $twig->render('home.twig', [
             'logged' => $_SESSION["logged"],
-            'root' => WEBROOT
+            'root' => WEBROOT,
+            'asset' => ASSET,
+            'js' => JS
         ]);
 
     }

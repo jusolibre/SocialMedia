@@ -15,7 +15,9 @@ Class manage {
 
         echo $twig->render('manage.twig', [
             'logged' => $_SESSION["logged"],
-            'root' => WEBROOT
+            'root' => WEBROOT,
+            'asset' => ASSET,
+            'js' => JS
         ]);
 
     }

@@ -3,12 +3,14 @@ session_start();
 $_SESSION["logged"] = 0;
 require 'vendor/autoload.php';
 
-
+define('ASSET', "stylesheet");
+define('JS', "templates/javascript");
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 define('WEBROOT', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
 
 
-$params = explode('/', $_GET['p']);
+if (isset($_GET['p']))
+    $params = explode('/', $_GET['p']);
 
 if ((isset($params[0]) && !empty($params[0])
     && file_exists("controller/" . $params[0] . "_controller.php")))

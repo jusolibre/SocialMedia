@@ -5,7 +5,7 @@
 {% block content %}
    <div class="row">
         <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3" id='container'>
-            <form action="?p=complement" method="POST" id="register">
+            <form action="{{ root }}register/insert" method="POST" id="register">
                 <div class="form-padding">
                     <label for="">Pseudo</label>
                     <input type="text" name="username" class="form-control"/>
