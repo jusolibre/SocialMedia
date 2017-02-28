@@ -16,7 +16,8 @@ Class home {
         echo $twig->render('home.twig', [
             'logged' => $_SESSION["logged"],
             'root' => WEBROOT,
-            'asset' => ASSET
+            'asset' => ASSET,
+            'js' => JS
         ]);
 
     }

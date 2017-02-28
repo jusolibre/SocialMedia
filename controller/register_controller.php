@@ -11,7 +11,8 @@ Class register {
         echo $twig->render('register.twig', [
             'logged' => $_SESSION["logged"],
             'root' => WEBROOT,
-            'asset' => ASSET
+            'asset' => ASSET,
+            'js' => JS
         ]);
 
     }

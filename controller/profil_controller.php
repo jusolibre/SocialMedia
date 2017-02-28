@@ -17,7 +17,8 @@ Class profil
         echo $twig->render('profil.twig', [
             'logged' => $_SESSION["logged"],
             'root' => WEBROOT,
-            'asset' => ASSET
+            'asset' => ASSET,
+            'js' => JS
         ]);
 
     }
