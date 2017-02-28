@@ -10,9 +10,11 @@ sudo a2enmod rewrite
 Ajouter ensuite les lignes suivantes dans le fichier de apache2.conf (normalement situé dans le dossier /etc/apache/)
 
 <code>
+<pre>
   \<ifModule mod_rewrite.c>
   RewriteEngine On
   \</ifModule>
+</pre>
 </code>
 
 Ajouter les lignes suivantes dans le fichier 000-default.conf
