@@ -1,4 +1,26 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
+    <div class="row">
+        <div class="col-sm-12 profilHeader" style="background-color:rgba(100, 100, 100, 0.6)">
+            <div class="col-sm-4">
+                <img src="{{ asset }}/image/background.png" width="100%" class="img-circle">
+            </div>
+            <div class="col-sm-8">
+                <h2 style="padding-top: 20px;">{{ user.nom }} {{ user.prenom }}</h2>
+                <p style="text-align: center; padding-top: 20px;">{{ user.description }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div clas="col-sm-12">
+            <h3>What happen's recently ?</h3>
+
+            {% for message in wall %}
+
+                
+
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
