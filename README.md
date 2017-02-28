@@ -12,7 +12,7 @@ Ajouter ensuite les lignes suivantes dans le fichier de apache2.conf (normalemen
 <code>
   <pre>
     \<ifModule mod_rewrite.c>
-    RewriteEngine On
+      RewriteEngine On
     \</ifModule>
   </pre>
 </code>
