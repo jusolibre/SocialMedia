@@ -15,6 +15,18 @@ Ajouter ensuite les lignes suivantes dans le fichier de apache2.conf (normalemen
   \</ifModule>
 </code>
 
+Ajouter les lignes suivantes dans le fichier 000-default.conf
+<code>
+   <pre>
+        \<Directory /var/www/html>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+        \</Directory>
+   </pre>
+</code>
+
 redémarrez ensuite le service apache2 avec la commande :
 
 <code>
