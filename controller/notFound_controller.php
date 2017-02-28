@@ -15,7 +15,8 @@ Class notFound {
 
         echo $twig->render('404.twig', [
             'logged' => $_SESSION["logged"],
-            'root' => WEBROOT
+            'root' => WEBROOT,
+            'asset' => ASSET
         ]);
 
     }

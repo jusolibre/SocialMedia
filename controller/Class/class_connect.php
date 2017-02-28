@@ -44,8 +44,9 @@
             return array($username, $newPassword, $email, $id);
         }
 
-        public function updateUtilisateur(nom, prenom, age, date_naissance, id) {
-        	$req = $this->pdo->prepare("UPDATE utilisateur SET nom=?, prenom=?, age=?, date_naissance=? WHERE id=?")
+        public function updateUtilisateur($nom, $prenom, $age, $date_naissance, $id) {
+        	$req = $this->pdo->prepare("UPDATE utilisateur SET nom=?, prenom=?, age=?, date_naissance=? WHERE id=?");
+            $req->execute(array($nom, $prenom, $age, $date_naissance, $id));
         }
 
 	}
