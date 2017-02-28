@@ -7,7 +7,7 @@ Activer le mode rewrite sur apache 2 :
 sudo a2enmod rewrite
 </code>
 
-Ajouter ensuite les lignes suivantes dans le fichier de apache2.conf (normalement situé dans le dossier /etc/apache/)
+Ajouter ensuite les lignes suivantes dans le fichier de apache2.conf (normalement situé dans le dossier /etc/apache2/)
 
 <code>
   <pre>
@@ -17,7 +17,7 @@ Ajouter ensuite les lignes suivantes dans le fichier de apache2.conf (normalemen
   </pre>
 </code>
 
-Ajouter les lignes suivantes dans le fichier 000-default.conf
+Ajouter les lignes suivantes dans le fichier 000-default.conf (normalement situé dans le dossier /etc/apache2/sites-available/000-default.conf)
 <code>
    <pre>
         \<Directory /var/www/html>
