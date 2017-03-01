@@ -6,31 +6,62 @@
  * Time: 13:44
  */
 
-    require_once("Class/class_twig.php");
+require_once("Class/class_twig.php");
+require_once ('Class/class_connect.php');
 
-    Class confirmation {
 
-        function index (){
+Class confirmation {
 
-             $twig = myTwig::create();
+    function index (){
 
-            echo $twig->render('confirmation.twig', [
-                'logged' => $_SESSION["logged"],
-                'root' => WEBROOT,
-                'asset' => ASSET,
-                'js' => JS
-            ]);
+        $twig = myTwig::create();
 
-        }
+        echo $twig->render('confirmation.twig', [
+            'logged' => $_SESSION["logged"],
+            'root' => WEBROOT,
+            'asset' => ASSET,
+            'js' => JS
+        ]);
 
-        function verification (){
-            if (!empty($_POST)){
-                if
+    }
+
+
+    function myRender($page){
+        $twig = myTwig::create();
+
+        echo $twig->render($page, [
+            'logged' => $_SESSION["logged"],
+            'root' => WEBROOT,
+            'asset' => ASSET,
+            'js' => JS
+        ]);
+    }
+
+
+    function matchToken() {
+        $id = $_SESSION["id"];
+        /*echo $_SESSION["logged"];
+        echo $_SESSION["id"];*/
+        $db = new Database('socialmedia');
+        if(isset($_POST['token'])){
+            $token = $_POST['token'];
+            $data = $db->matchToken($id);
+            /* echo "$token == " . $data['confirmation_token'];*/
+            if($data['confirmation_token'] == $token){
+
+                $db->updateToken($id);
+
+                $this->myRender('profil.twig');
+            }
+
+            else {
+                $this->myRender('confirmation.twig');
             }
 
         }
-
-
     }
+
+
+}
 
 ?>

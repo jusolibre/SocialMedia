@@ -6,10 +6,10 @@
 
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3" id="container">
-            <form method="post" id="compelement" action="{{ root }}confirmation/verification">
+            <form method="post" id="compelement" action="{{ root }}confirmation/matchToken">
                 <div class="form-padding">
-                    <label for="">Entrez votre clé d'activation:</label>
-                    <input type="text" name="nom" id="nom" class="form-control">
+                    <label for="">Entrez votre clé d'activation envoyé par eMail:</label>
+                    <input type="text" name="token" id="nom" class="form-control">
                     <input type="submit" name="confirmer" value="Envoyer" class="btn-primaryy">
                 </div>
 
