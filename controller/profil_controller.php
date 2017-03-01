@@ -20,9 +20,36 @@ Class profil
             'asset' => ASSET,
             'js' => JS,
             'user' => [
+                'id' => 0,
                 'nom' => 'Julien',
                 'prenom' => 'Sobritz',
                 'description' => 'Salut je m\'apelle julien et la je fait du front-end, et je sais taper au clavier sans le regarder'
+            ],
+            'wall' => [
+                0 => [
+                    'user' => [
+                        'id' => 0,
+                        'prenom' => 'Julien',
+                        'nom' => 'Sobritz',
+                    ],
+                    'message' => "premier message"
+                ],
+                1 => [
+                    'user' => [
+                        'id' => 1,
+                        'prenom' =>'Vincent',
+                        'nom' => 'Gérard'
+                    ],
+                    'message' => "Deuxieme message"
+                ],
+                2 => [
+                    'user' => [
+                        'id' => 2,
+                        'prenom' => 'Brahim',
+                        'nom' => 'Trop dur a écrire x)'
+                    ],
+                    'message' => "Troisieme message"
+                ]
             ]
         ]);
 

@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-sm-12 profilHeader" style="background-color:rgba(100, 100, 100, 0.6)">
+        <div class="col-sm-12 profilHeader" style="background-color:rgba(10, 50, 150, 0.3);">
             <div class="col-sm-4">
                 <img src="{{ asset }}/image/background.png" width="100%" class="img-circle">
             </div>
@@ -13,12 +13,20 @@
         </div>
     </div>
     <div class="row">
-        <div clas="col-sm-12">
+        <div class="col-sm-12">
             <h3>What happen's recently ?</h3>
 
             {% for message in wall %}
 
-                
+                {% if message.user.id == user.id %}
+                <div class="col-xs-8 col-xs-offset-2 owner">
+                {% else %}
+                <div class="col-xs-8 col-xs-offset-2 other">
+                {% endif %}
+
+                    <p>{{ message.user.prenom }} {{ message.user.nom }} à dit :</p>
+                    <p>{{ message.message }}</p>
+                </div>
 
             {% endfor %}
         </div>

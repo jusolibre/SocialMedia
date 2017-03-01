@@ -1,0 +1,12 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Liste d'amis{% endblock %}
+
+{% block content %}
+   <div class="raw">
+   	<div class="col-sm-8 col-sm-offset-2">
+	     {% for friend in friends %}
+	     {% endfor %}
+	</div>
+   </div>
+{% endblock %}
