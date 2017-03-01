@@ -7,6 +7,7 @@
         private $db_host;
         private $pdo;
 
+
         public function __construct($db_name, $db_user = 'root', $db_pass = 'online', $db_host = 'localhost')
         {
             $this->db_name = $db_name;
@@ -53,18 +54,17 @@
         public function addUser($password, $username, $email)
         {
             $id = $this->addUtilisateur($email);
+    echo "id => $id <br>";
             $req = $this->pdo->prepare('INSERT INTO compte SET username = ?, password = ?, email = ?, id_utilisateur = ?, confirmation_token = ?');
             $newPassword = password_hash($password, PASSWORD_BCRYPT);
             $token = $this->str_random(60);
             $_SESSION["id"] = $id;
-            echo "token => $token <br>";
             $req->execute(array($username, $newPassword, $email, $id, $token));
             return array($username, $newPassword, $email, $id, $token);
         }
 
         public function updateUtilisateur($nom, $prenom, $age, $date_naissance, $id)
         {
-            /*echo "data are ========>>>>>> $nom $prenom $age $date_naissance $id";*/
             $req = $this->pdo->prepare("UPDATE utilisateur SET nom=:nom, prenom= :prenom, age= :age, date_naissance= :date_naissance WHERE id= :id");
             var_dump($req);
             $req->bindParam(":nom", $nom);
@@ -74,6 +74,18 @@
             $req->bindParam(":id", $id);
             $req->execute();
         }
+	public function checkUser($username) {
+        	$req = $this->pdo->prepare("SELECT * FROM compte WHERE username = $username");
+        	$reponse = $req->execute();
+        	if ($reponse) {
+        		echo "Cet username est déjà utilisé";
+       		 }
+        else {
+        	addUtilisateur($username);
+        	die("compte crée");
+        	}
+
+	}
 
         //Compare les 2 tokens
         public function matchToken($id_utilisateur)
@@ -100,7 +112,8 @@
 
     }
 
-    ?>
+
+
 
 
 

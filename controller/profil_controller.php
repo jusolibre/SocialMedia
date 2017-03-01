@@ -18,7 +18,12 @@ Class profil
             'logged' => $_SESSION["logged"],
             'root' => WEBROOT,
             'asset' => ASSET,
-            'js' => JS
+            'js' => JS,
+            'user' => [
+                'nom' => 'Julien',
+                'prenom' => 'Sobritz',
+                'description' => 'Salut je m\'apelle julien et la je fait du front-end, et je sais taper au clavier sans le regarder'
+            ]
         ]);
 
     }

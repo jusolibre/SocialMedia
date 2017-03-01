@@ -4,11 +4,11 @@ require_once("Class/class_twig.php");
 
 Class register {
 
-    private function myRender() {
+    private function myRender($page) {
 
         $twig = myTwig::create();
 
-        echo $twig->render('register.twig', [
+        echo $twig->render($page, [
             'logged' => $_SESSION["logged"],
             'root' => WEBROOT,
             'asset' => ASSET,
@@ -37,19 +37,19 @@ Class register {
             }
             else {
 
-                $this->myRender();
+                $this->myRender('register.twig');
 
             }
         } else {
 
-            $this->myRender();
+            $this->myRender('register.twig');
 
         }
     }
 
     function index() {
 
-        $this->myRender();
+        $this->myRender('register.twig');
     }
 
 }
