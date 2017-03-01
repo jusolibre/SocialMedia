@@ -74,16 +74,18 @@
             $req->bindParam(":id", $id);
             $req->execute();
         }
-	public function checkUser($username) {
-        	$req = $this->pdo->prepare("SELECT * FROM compte WHERE username = $username");
-        	$reponse = $req->execute();
+	  public function checkUser($username) {
+        	$req = $this->pdo->prepare("SELECT * FROM compte WHERE username = :user");
+        	$req->bindParam(':user', $username, PDO::PARAM_STR);
+        	$req->execute();
+        	$reponse = $req->fetch(PDO::FETCH_OBJ);
         	if ($reponse) {
-        		echo "Cet username est déjà utilisé";
-       		 }
+        		echo "1";
+        		return false;
+        }
         else {
-        	addUtilisateur($username);
-        	die("compte crée");
-        	}
+        	return true;
+        }
 
 	}
 
