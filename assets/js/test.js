@@ -76,3 +76,10 @@ $(document).ready(function() {
     
 
 });
+function checkDateNaissance(date_naissance) {
+  var form = document.getElementById('complement');
+  date_naissance = form.elements.naissance.val();
+  if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", date_naissance)) {
+    console.log('La date entrée est correcte');
+  }
+}
