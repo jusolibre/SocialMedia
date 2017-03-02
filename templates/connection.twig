@@ -1,4 +1,47 @@
 {% extends 'layout.twig' %}
 
+{% block title %}Login{% endblock %}
+
 {% block content %}
+
+    <divclass="padding"></div>
+    <div class="row">
+        <div class="10u -1u 10u(mobile) -1u(mobile) 10u(tablet) -1u(tablet)">
+            <p id="dispo"></p>
+            <form action="{{ root }}connection/login" method="POST">
+                <section>
+                    <div class="row">
+                        <div class="4u -2u 4u(mobile) 4u(tablet)">
+                            <label for="username">Pseudo ou adresse eMail</label><span id="user"></span>
+                        </div>
+                        <div class="4u -2u 4u(mobile) 4u(tablet)">
+                            <input type="text" name="username" class="form-control" id="username" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="4u -2u 4u(mobile) 4u(tablet)">
+                            <label for="password">Mot de passe</label><span id="pass"></span>
+                        </div>
+                        <div class="4u -2u 4u(mobile) 4u(tablet)">
+                            <input type="password" name="password" class="form-control" id="password"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="4u -2u 4u(mobile) 4u(tablet)">
+                            <label>
+                                <input type="checkbox" name="remember" value="1"/> Se souvenir de moi
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="2u -5u 2u(mobile) -4u(mobile) 2u(tablet) -4u(tablet)">
+                            <button type="submit" class="btn btn-primaryy">Me connecter</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+        <div class="padding"></div>
 {% endblock %}

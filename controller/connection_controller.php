@@ -8,13 +8,15 @@
 
 require_once("Class/class_twig.php");
 
-Class connection {
+Class connection
+{
 
-    function index() {
+    function index()
+    {
 
         $twig = myTwig::create();
 
-        echo $twig->render('home.twig', [
+        echo $twig->render('connection.twig', [
             'logged' => $_SESSION["logged"],
             'root' => WEBROOT,
             'asset' => ASSET,
@@ -23,4 +25,11 @@ Class connection {
 
     }
 
+    function login()
+    {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+
+    }
 }
