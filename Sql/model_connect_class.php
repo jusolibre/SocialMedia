@@ -24,6 +24,9 @@
             $this->pdo = $pdo;
         }
 
+        public function getter() {
+            return $this->pdo;
+        }
 
     }
 
