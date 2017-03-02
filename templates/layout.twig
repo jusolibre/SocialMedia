@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset }}css/layout.css" type="text/css">
     <!--[if lte IE 8]><script src="{{ js }}/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="{{ asset }}css/main.css" />
+	  <link rel="stylesheet" href="{{ asset }}css/layout.css" type="text/css">
     <!--[if lte IE 9]><link rel="stylesheet" href="{{ asset }}css/ie9.css" /><![endif]-->
   </head>
   <body>
@@ -16,7 +16,7 @@
       <div id="header-wrapper">
 		<header id="header" class="container">
 		  <div class="row">
-			<div class="12u 6u(tablet) 12u(mobile) 6u(desktop)">
+			<div class="12u 6u(tablet) 12u(mobile) 6u(desktop)" id="navBanner">
 			  <h1><a href="#" id="logo">Hm</a></h1>
 				<nav id="nav">
 					<a href="{{ root }}home">Home</a>
@@ -41,13 +41,13 @@
 
 
       <div id="content-wrapper">
-	<div id="content">
-	  <div class="container">
-	    <div class="row">
-		{% block content %}{% endblock %}
-	    </div>
-	  </div>
-	</div>
+		<div id="content">
+	  		<div class="container">
+	    		<div class="row">
+				{% block content %}{% endblock %}
+	    		</div>
+	  		</div>
+		</div>
       </div>
 
       <div id="footer-wrapper">
@@ -118,6 +118,7 @@
     <script src="{{ js }}/util.js"></script>
     <!--[if lte IE 8]><script src="{{ js }}/ie/respond.min.js"></script><![endif]-->
     <script src="{{ js }}/main.js"></script>
+	<script src="{{ js }}/test.js"></script>
     
   </body>
 </html>

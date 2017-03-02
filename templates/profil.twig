@@ -17,16 +17,23 @@
     </div>
     <div class="topMargin">
     <section>
-    Ici on pourrais mettre les demandes d'amis ?
+        Ici on pourrais mettre les demandes d'amis ?
     </section>
     </div>
 </div>
 <div class=" 7u 8u(mobile) -2u(mobile) 6u(tablet) -1u(tablet)">
 	<section>
-    	{% for message in wall %}
+	<form action"" method="POST" id="postMessage">
+	      <label for="comment">Postez un message sur mon mur :</label>
+	      <input type="text" name="comment" id="comment">
+	      <button type="submit">Poster</button>
+	</form>
+	{% for message in wall %}
 			<div class="topMargin">
 				<header>
-					<h3>What happen's recently ?</h3>
+				<a href="{{ root }}profil/display/{{message.user.id}}">
+				<h3>What happen's recently ?</h3>
+				</a>
 				</header>
 				<div class="row">
 		     		<div class="10u -1u 10u(mobile) -1u(mobile) 10u(tablet) -1u(tablet)">

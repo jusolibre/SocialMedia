@@ -22,6 +22,27 @@ class userDatabase
             $req->execute();
         }
 
+        public function isFriend($id, $user) {
+            if ($id == $user)
+                return false;
+            $req = $this->bdd->prepare("SELECT * FROM utilisateur WHERE id= :id");
+            $req->bindParam(":id", $id);
+            $req->execute();
+            $reponse = $req->fetch(PDO::FETCH_OBJ);
+            if (strstr($reponse['amis'], "," . $user . ","))
+                return true;
+            else
+                return false;
+        }
+
+        public function getWall($id) {
+            $req = $this->bdd->prepare("SELECT * FROM commentaire WHERE id_mur= :id");
+            $req->bindParam(":id", $id);
+            $req->execute();
+            $reponses = $req->fetchAll(PDO::FETCH_OBJ);
+            return $reponses;
+        }
+        
         public function getUserById($id) {
             $req = $this->bdd->prepare("SELECT * FROM utilisateur WHERE id= :id");
             $req->bindParam(":id", $id);

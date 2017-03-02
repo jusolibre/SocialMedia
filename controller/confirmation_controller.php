@@ -40,13 +40,10 @@ Class confirmation {
 
     function matchToken() {
         $id = $_SESSION["id"];
-        /*echo $_SESSION["logged"];
-        echo $_SESSION["id"];*/
         $db = new accountDatabase('socialmedia');
         if(isset($_POST['token'])){
             $token = $_POST['token'];
             $data = $db->matchToken($id);
-            /* echo "$token == " . $data['confirmation_token'];*/
             if($data['confirmation_token'] == $token){
 
                 $db->updateToken($id);

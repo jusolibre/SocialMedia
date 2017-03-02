@@ -3,45 +3,49 @@
 {% block title %}Inscription{% endblock %}
 
 {% block content %}
-<divclass="padding"></div>
-<div class="row">
+
+    <div class="padding"></div>
     <div class="10u -1u 10u(mobile) -1u(mobile) 10u(tablet) -1u(tablet)">
         <p id="dispo"></p>
         <form action="{{ root }}register/checkuser" method="POST" id="register">
             <section>
                 <div class="row">
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
-                        <label for="username">Pseudo</label><span id="user"></span>
+                        <label for="username">Pseudo</label>
                     </div>
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
                         <input type="text" name="username" class="form-control" id="username" />
+                        <span id="user"></span>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
-                        <label for="email">eMail</label><span id="email"></span>
+                        <label for="email">eMail</label>
                     </div>
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
                         <input type="text" name="email" class="form-control" id="mail"/>
+                        <span id="email"></span>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
-                        <label for="password">Mot de passe</label><span id="pass"></span>
+                        <label for="password">Mot de passe</label>
                     </div>
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
                         <input type="password" name="password" class="form-control" id="password"/>
+                        <span id="pass"></span>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
-                        <label for="password_confirm">Confirmez votre mot de passe</label><span id="confirm"></span>
+                        <label for="password_confirm">Confirmez votre mot de passe</label>
                     </div>
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
                         <input type="password" name="password_confirm" class="form-control" id="pass_confirm"/>
+                        <span id="confirm"></span>
                     </div>
                 </div>
             </section>
@@ -53,4 +57,4 @@
         </form>
     </div>
     <div class="padding"></div>
-    {% endblock %}
+{% endblock %}
