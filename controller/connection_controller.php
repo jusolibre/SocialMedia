@@ -14,7 +14,7 @@ Class connection {
 
         $twig = myTwig::create();
 
-        echo $twig->render('home.twig', [
+        echo $twig->render('connection.twig', [
             'logged' => $_SESSION["logged"],
             'root' => WEBROOT,
             'asset' => ASSET,
