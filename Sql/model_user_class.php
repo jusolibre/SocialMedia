@@ -27,7 +27,7 @@ class userDatabase
             $req->bindParam(":id", $id);
             $req->execute();
             $reponse = $req->fetch(PDO::FETCH_OBJ);
-            return $response
+            return $reponse;
         }
         
         public function findFriends($id) {

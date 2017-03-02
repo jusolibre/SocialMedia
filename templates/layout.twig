@@ -1,76 +1,123 @@
-<!DOCTYPE>
+<!DOCTYPE HTML>
 <html>
-<head>
-
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset }}/layout.css" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
     <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset }}css/layout.css" type="text/css">
+    <!--[if lte IE 8]><script src="{{ js }}/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="{{ asset }}css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="{{ asset }}css/ie9.css" /><![endif]-->
+  </head>
+  <body>
+    <div id="page-wrapper">
+      <div id="header-wrapper">
+		<header id="header" class="container">
+		  <div class="row">
+			<div class="12u 6u(tablet) 12u(mobile) 6u(desktop)">
+			  <h1><a href="#" id="logo">Hm</a></h1>
+				<nav id="nav">
+					<a href="{{ root }}home">Home</a>
+					<a href="{{ root }}profil">Profil</a>
+					<a href="{{ root }}friendlist">Friend</a>
+					<!-- <form class="navbar-form collapse-search">
+					<input type="text" placeholder="Search">
+					<button type="submit">Submit</button>
+					</form> -->
+					{% if logged == false %}
+					<a href="{{ root }}register">Sign Up</a>
+					<a href="{{ root }}connection">Login</a>
+					{% else %}
+					<a href="{{ root }}manage">Setting</a>
+					<a href="{{ root }}deconnection">Disconnect</a>
+					{% endif %}
+				</nav>
+			</div>
+		  </div>
+		</header>
+      </div>
 
-</head>
-<body>
 
-<nav class="navbar navbar-default custom-navbar">
-    <div class="container-fluid">
-        <div class="col-sm-4 col-sm-offset-4">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand myHeaderSoloLink" href="{{ root }}home/home">HackMedia</a>
-            </div>
-        </div>
+      <div id="content-wrapper">
+	<div id="content">
+	  <div class="container">
+	    <div class="row">
+		{% block content %}{% endblock %}
+	    </div>
+	  </div>
+	</div>
+      </div>
 
-        <div class="row">
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <div class="col-sm-12 col-md-12">
-                    <div class="col-sm-4 col-md-4">
-                        <ul class="nav navbar-nav">
-                            <li><a href="{{ root }}home" class="myHeaderLink">Home</a></li>
-                            <li><a href="{{ root }}profil" class="myHeaderLink">Profil</a></li>
-                            <li><a href="{{ root }}friendlist" class="myHeaderLink">Amis</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-sm-3 col-md-3">
-                        <ul class="nav navbar-nav navbar-center">
-                            <li>
-                                <form class="navbar-form collapse-search">
-                                    <div class="form-group collapse-search-left">
-                                        <input type="text" class="form-control search-elem" placeholder="Search">
-                                    </div>
-                                    <div class="form-group collapse-search-right">
-                                        <button type="submit" class="btn btn-default search-elem">Submit</button>
-                                    </div>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-sm-5 col-md-5">
-                        <ul class="nav navbar-nav navbar-right">
-                            {% if logged == false %}
-                                <li><a href="{{ root }}register" class="myHeaderLink"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                                <li><a href="{{ root }}connection" class="myHeaderLink"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                            {% else %}
-                                <li><a href="{{ root }}manage">Gestion de compte</a></li>
-                                <li><a href="{{ root }}deconnection" class="myHeaderLink"><span class="glyphicon glyphicon-log-out">Deconnection</a></li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div id="footer-wrapper">
+	<footer id="footer" class="container">
+	  <div class="row">
+	    <div class="8u 12u(mobile) 12u(tablet) 12u(desktop)">
+	      <section>
+		<h2>Links to Important Stuff</h2>
+		<div>
+		  <div class="row">
+		    <div class="3u 12u(mobile) 12u(tablet) 12u(desktop)">
+		      <ul class="link-list last-child">
+			<li><a href="#">Neque amet dapibus</a></li>
+			<li><a href="#">Sed mattis quis rutrum</a></li>
+			<li><a href="#">Accumsan suspendisse</a></li>
+			<li><a href="#">Eu varius vitae magna</a></li>
+		      </ul>
+		    </div>
+		    <div class="3u 12u(mobile) 12u(tablet) 12u(desktop)">
+		      <ul class="link-list last-child">
+			<li><a href="#">Neque amet dapibus</a></li>
+			<li><a href="#">Sed mattis quis rutrum</a></li>
+			<li><a href="#">Accumsan suspendisse</a></li>
+			<li><a href="#">Eu varius vitae magna</a></li>
+		      </ul>
+		    </div>
+		    <div class="3u 12u(mobile) 12u(tablet) 12u(desktop)">
+		      <ul class="link-list last-child">
+			<li><a href="#">Neque amet dapibus</a></li>
+			<li><a href="#">Sed mattis quis rutrum</a></li>
+			<li><a href="#">Accumsan suspendisse</a></li>
+			<li><a href="#">Eu varius vitae magna</a></li>
+		      </ul>
+		    </div>
+		    <div class="3u 12u(mobile) 12u(tablet) 12u(desktop)">
+		      <ul class="link-list last-child">
+			<li><a href="#">Neque amet dapibus</a></li>
+			<li><a href="#">Sed mattis quis rutrum</a></li>
+			<li><a href="#">Accumsan suspendisse</a></li>
+			<li><a href="#">Eu varius vitae magna</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</div>
+	      </section>
+	    </div>
+	    <div class="4u">
+	      <section>
+		<h2>An Informative Text Blurb</h2>
+		<p>
+		  Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed. Suspendisse eu
+		  varius nibh. Suspendisse vitae magna eget odio amet mollis. Duis neque nisi,
+		  dapibus sed mattis quis, sed rutrum accumsan sed. Suspendisse eu varius nibh
+		  lorem ipsum amet dolor sit amet lorem ipsum consequat gravida justo mollis.
+		</p>
+	      </section>
+	    </div>
+	  </div>
+	</footer>
+      </div>
+      <div id="copyright">
+	&copy; Untitled. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
+      </div>
     </div>
-</nav>
-
-{% block content %}{% endblock %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
+    <script src="{{ js }}/jquery.min.js"></script>
+    <script src="{{ js }}/skel.min.js"></script>
+    <script src="{{ js }}/skel-viewport.min.js"></script>
+    <script src="{{ js }}/util.js"></script>
+    <!--[if lte IE 8]><script src="{{ js }}/ie/respond.min.js"></script><![endif]-->
+    <script src="{{ js }}/main.js"></script>
+    
+  </body>
 </html>

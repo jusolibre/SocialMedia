@@ -3,8 +3,9 @@ session_start();
 $_SESSION["logged"] = 0;
 require 'vendor/autoload.php';
 
-define('ASSET', "stylesheet");
-define('JS', "templates/javascript");
+define('ASSET', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']) . "assets/");
+define('JS', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']) . "assets/js/");
+define('SQL', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']) . "Sql");
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 define('WEBROOT', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
 

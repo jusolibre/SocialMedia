@@ -1,34 +1,48 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-sm-12 profilHeader" style="background-color:rgba(10, 50, 150, 0.3);">
-            <div class="col-sm-4">
-                <img src="{{ asset }}/image/background.png" width="100%" class="img-circle">
-            </div>
-            <div class="col-sm-8">
-                <h2 style="padding-top: 20px;">{{ user.nom }} {{ user.prenom }}</h2>
-                <p style="text-align: center; padding-top: 20px;">{{ user.description }}</p>
-            </div>
-        </div>
+<div class="row">
+<div class="3u -1u 12u(mobile) 6u(tablet) -1u(tablet)">
+     <div>
+	<section>
+		<header>
+		<img src="{{ asset }}css/images/background.png" width="100%" class="img-circle">
+		<h2 style="padding-top: 20px;">{{ user.nom }} {{ user.prenom }}</h2>
+		</header>
+		<p style="text-align: center; padding-top: 20px;">{{ user.description }}</p>
+		<footer>
+		<p>Here is a place where we could hold for more options</p>
+		</footer>
+	</section>
     </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <h3>What happen's recently ?</h3>
-
-            {% for message in wall %}
-
-                {% if message.user.id == user.id %}
-                <div class="col-xs-8 col-xs-offset-2 owner">
-                {% else %}
-                <div class="col-xs-8 col-xs-offset-2 other">
-                {% endif %}
-
-                    <p>{{ message.user.prenom }} {{ message.user.nom }} à dit :</p>
-                    <p>{{ message.message }}</p>
-                </div>
-
-            {% endfor %}
-        </div>
+    <div class="topMargin">
+    <section>
+    Ici on pourrais mettre les demandes d'amis ?
+    </section>
     </div>
+</div>
+<div class=" 7u 8u(mobile) -2u(mobile) 6u(tablet) -1u(tablet)">
+	<section>
+    	{% for message in wall %}
+			<div class="topMargin">
+				<header>
+					<h3>What happen's recently ?</h3>
+				</header>
+				<div class="row">
+		     		<div class="10u -1u 10u(mobile) -1u(mobile) 10u(tablet) -1u(tablet)">
+		     			<p>{{ message.user.prenom }} {{ message.user.nom }} à dit :</p>
+						<p>{{ message.message }}</p>
+		     		</div>
+				</div>
+				<div class="row">
+					<div class="4u -4u 4u(mobile) -4u(mobile) 4u(tablet) -4u(tablet)">
+		          		<div class="footer">What about the hour here ?</div>
+		     		</div>
+				</div>
+			</div>
+		{% endfor %}
+	</section>
+</div>
+</div>
+<div class="padding"></div>
 {% endblock %}

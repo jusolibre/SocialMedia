@@ -1,0 +1,28 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Account management{% endblock %}
+
+{% block content %}
+<div class="row">
+     <div class="col-sm-3">
+     	  <ul class="nav nav-tabs tabs-left">
+	      <li class="active"><a href="#email" data-toggle="tab">email</a></li>
+	      <li><a href="#description" data-toggle="tab">Description</a></li>
+	      <li><a href="#photo" data-toggle="tab">Photo</a></li>
+	      <li><a href="#date" data-toggle="tab">Date de naissance</a></li>
+	      <li><a href="#pays" data-toggle="tab">Pays</a></li>
+	      <li><a href="#ville" data-toggle="tab">Ville</a></li>
+	  </ul>
+     </div>
+     <div class="col-sm-9">
+     	  <div class="tab-content">
+               <div class="tab-pane active" id="email">Changez votre email ici.</div>
+	       <div class="tab-pane" id="description">Changez votre description ici.</div>
+	       <div class="tab-pane" id="photo">Changez votre photo ici.</div>
+	       <div class="tab-pane" id="date">Changez votre date de naissance ici.</div>
+	       <div class="tab-pane" id="pays">Changez votre pays ici.</div>
+	       <div class="tab-pane" id="ville">Changez votre ville ici.</div>
+	       </div>
+     </div>
+</div>
+{% endblock %}

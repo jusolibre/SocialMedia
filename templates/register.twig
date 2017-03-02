@@ -3,32 +3,54 @@
 {% block title %}Inscription{% endblock %}
 
 {% block content %}
-   <div class="row">
-        <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3" id='container'>
-        <p id="dispo"></p>
-            <form action="{{ root }}register/checkuser" method="POST" id="register">
-                <div class="form-padding">
-                    <label for="">Pseudo</label><span id="user"></span>
-                    <input type="text" name="username" class="form-control" id="username" />
-                </div>
+<divclass="padding"></div>
+<div class="row">
+<div class="10u -1u 10u(mobile) -1u(mobile) 10u(tablet) -1u(tablet)">
+<p id="dispo"></p>
+<form action="{{ root }}register/checkuser" method="POST" id="register">
+<section>
+<div class="row">
+<div class="4u -2u 4u(mobile) 4u(tablet)">
+<label for="username">Pseudo</label><span id="user"></span>
+</div>
+<div class="4u -2u 4u(mobile) 4u(tablet)">
+<input type="text" name="username" class="form-control" id="username" />
+</div>
+</div>
 
-                <div class="form-padding">
-                    <label for="">eMail</label><span id="email"></span>
-                    <input type="text" name="email" class="form-control" id="mail"/>
-                </div>
+<div class="row">
+<div class="4u -2u 4u(mobile) 4u(tablet)">
+<label for="email">eMail</label><span id="email"></span>
+</div>
+<div class="4u -2u 4u(mobile) 4u(tablet)">
+<input type="text" name="email" class="form-control" id="mail"/>
+</div>
+</div>
 
-                <div class="form-padding">
-                    <label for="">Mot de passe</label><span id="pass"></span>
-                    <input type="password" name="password" class="form-control" id="password"/>
-                </div>
-                <div class="form-padding">
-                    <label for="">Confirmez votre mot de passe</label><span id="confirm"></span>
-                    <input type="password" name="password_confirm" class="form-control" id="pass_confirm"/>
-                </div>
-		<div class="col-md-4 col-md-offset-5">
-		     <button type="submit" class="btn btn-primaryy" onSubmit="validate()">M'inscrire</button>
-		</div>
-            </form>
-        </div>
-    </div>
+<div class="row">
+<div class="4u -2u 4u(mobile) 4u(tablet)">
+<label for="password">Mot de passe</label><span id="pass"></span>
+</div>
+<div class="4u -2u 4u(mobile) 4u(tablet)">
+<input type="password" name="password" class="form-control" id="password"/>
+</div>
+</div>
+
+<div class="row">
+<div class="4u -2u 4u(mobile) 4u(tablet)">
+<label for="password_confirm">Confirmez votre mot de passe</label><span id="confirm"></span>
+</div>
+<div class="4u -2u 4u(mobile) 4u(tablet)">
+<input type="password" name="password_confirm" class="form-control" id="pass_confirm"/>
+</div>
+</div>
+</section>
+<div class="row">
+<div class="2u -5u 2u(mobile) -4u(mobile) 2u(tablet) -4u(tablet)">
+<button type="submit" class="btn btn-primaryy" onSubmit="validate()">M'inscrire</button>
+</div>
+</div>
+</form>
+</div>
+<div class="padding"></div>
 {% endblock %}
