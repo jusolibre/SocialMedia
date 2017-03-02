@@ -1,10 +1,10 @@
 <?
-require_once('Class/class_connect.php');
+require_once(SQL . '/model_user_class.php');
 
 Class friendlist {
 
     function index() {
-        $db = new Database('socialmedia');
+        $db = new userDatabase('socialmedia');
         $friendlist = $db->findFriends();
         
     }

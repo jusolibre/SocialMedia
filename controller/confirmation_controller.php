@@ -7,7 +7,7 @@
  */
 
 require_once("Class/class_twig.php");
-require_once ('Class/class_connect.php');
+require_once ( SQL . '/model_account_class.php');
 
 
 Class confirmation {
@@ -42,7 +42,7 @@ Class confirmation {
         $id = $_SESSION["id"];
         /*echo $_SESSION["logged"];
         echo $_SESSION["id"];*/
-        $db = new Database('socialmedia');
+        $db = new accountDatabase('socialmedia');
         if(isset($_POST['token'])){
             $token = $_POST['token'];
             $data = $db->matchToken($id);

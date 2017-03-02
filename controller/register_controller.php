@@ -1,5 +1,6 @@
 <?php
 require_once("Class/class_twig.php");
+require_once( SQL . '/model_account_class.php');
 
 
 Class register {
@@ -31,9 +32,9 @@ Class register {
                 $errors['password'] = "Les mots de passe ne corresponde pas !";
             }
             if (empty($errors)) {
-                require('Class/class_connect.php');
-                $pdo = new Database('socialmedia');
+                $pdo = new accountDatabase('socialmedia');
                 $pdo->addUser($_POST["password"], $_POST["username"], $_POST["email"]);
+                $this->myRender('complementaire.twig');
             }
             else {
 
