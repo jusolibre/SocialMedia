@@ -23,7 +23,9 @@
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;
         }
-
+ 	public function getter() {
+            return $this->pdo;
+        }
 
     }
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 24 Février 2017 à 10:46
+-- Généré le :  Jeu 02 Mars 2017 à 12:00
 -- Version du serveur :  5.7.17-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.15-0ubuntu0.16.04.2
 
@@ -45,7 +45,9 @@ CREATE TABLE `compte` (
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `id_utilisateur` int(11) NOT NULL
+  `id_utilisateur` int(11) NOT NULL,
+  `confirmation_token` varchar(60) DEFAULT NULL,
+  `token_stat` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -78,16 +80,21 @@ CREATE TABLE `utilisateur` (
   `date_naissance` datetime DEFAULT NULL,
   `pays` varchar(45) DEFAULT NULL,
   `ville` varchar(45) DEFAULT NULL,
-  `prenom_nom` varchar(45) DEFAULT NULL,
-  `age` int(11) DEFAULT NULL
+  `prenom` varchar(45) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `nom` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
 --
--- Contenu de la table `utilisateur`
+-- Structure de la table `validation`
 --
 
-INSERT INTO `utilisateur` (`id`, `amis`, `email`, `description`, `photo`, `date_naissance`, `pays`, `ville`, `prenom_nom`, `age`) VALUES
-(1, 'Ya quelqu\'un ? ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+CREATE TABLE `validation` (
+  `confirmatio_token` varchar(60) DEFAULT NULL,
+  `confirmed_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Index pour les tables exportées
@@ -137,7 +144,7 @@ ALTER TABLE `commentaire`
 -- AUTO_INCREMENT pour la table `compte`
 --
 ALTER TABLE `compte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT pour la table `mur`
 --
@@ -147,7 +154,7 @@ ALTER TABLE `mur`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 --
 -- Contraintes pour les tables exportées
 --

@@ -25,11 +25,12 @@ Class connection
 
     }
 
+
     function login()
     {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $email = $_POST['email'];
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $email = $_POST["email"];
 
     }
 }
