@@ -19,6 +19,11 @@ if ((isset($params[0]) && !empty($params[0])
 else
     $controllerName = 'home';
 
+if (isset($params[2])) {
+    $actionParam = array_slice($params, 2);
+    var_dump($actionParam);
+}
+
 $actionName = isset($params[1]) ? $params[1] : 'index';
 
 
@@ -36,6 +41,11 @@ if (!method_exists($controller, $actionName)) {
     $actionName = 'index';
 }
 
-$controller->$actionName();
+if (isset($actionParam)){
+    $controller->$actionName($actionParam);
+}
+else {
+    $controller->$actionName();
+}
 
 ?>

@@ -16,19 +16,5 @@
 }
 
 .topMargin {
-    margin-top: 100px;
-}
-
-h1 {
-    position: inherit;
-    width: 50%;
-}
-
-h1 a {
-    margin-left: 18%;
-    font-size: 1em;
-}
-
-#header nav {
-    position: inherit;
+    margin-top: 50px;
 }
