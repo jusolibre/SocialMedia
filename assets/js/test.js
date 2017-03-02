@@ -53,14 +53,23 @@
               data: "username=" + $('#username').val() + "&password=" + $('#password').val() + "&email=" + $('#mail').val() + "&password_confirm=" + $('#pass_confirm').val(), // Je sérialise les données (j'envoie toutes les valeurs présentes dans le formulaire)
               dataType: 'text',
               success: function(html) { // Je récupère la réponse du fichier PHP
-                if (html[1] == "0") {
+                  console.log(html);
+                if (html[0] == "0") {
                   $(location).attr('href', 'http://localhost/SocialMedia-master/profil');
+                  console.log("ok");
                 }
                 
                 else {
                     message = "Le nom de l'utilisateur n'est pas disponible";
+                  console.log(html);
                     document.getElementById('dispo').textContent = message;
+                  console.log("not ok");
                   }
+               },
+               error: function(err1, err2, err3) {
+                  console.log(err1);
+                  console.log(err3);
+                  console.log(err2);
                }
 
              });  
