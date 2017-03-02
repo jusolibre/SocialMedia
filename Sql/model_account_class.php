@@ -8,21 +8,21 @@ class accountDatabase
 
         public function __construct()
         {
-            $this->bdd = new Database('socialmedia');
+            $db = new Database('socialmedia');
+            $this->bdd = $db->getter();
         }
 
         private function addUtilisateur($email)
         {
             $req = $this->bdd->prepare("INSERT INTO utilisateur SET nom = 'unset', email= ?");
             $req->execute(array($email));
-            return $this->pdo->lastInsertId();
+            return $this->bdd->lastInsertId();
         }
 
         public function str_random($lenght)
         {
             $alpha = '0123456789azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN';
             $tmp = substr(str_shuffle(str_repeat($alpha, $lenght)), 0, $lenght);
-            echo($tmp);
             return $tmp;
         }
 
@@ -34,7 +34,8 @@ class accountDatabase
             $token = $this->str_random(60);
             $_SESSION["id"] = $id;
             $req->execute(array($username, $newPassword, $email, $id, $token));
-            return array($username, $newPassword, $email, $id, $token);
+            $_SESSION["user"] = array($username, $newPassword, $email, $id, $token);
+            return true;
         }
 
         public function checkUser($username)
@@ -71,7 +72,14 @@ class accountDatabase
         	$req->execute();
 		}
 
+
     }
+
+
+
+
+
+
 
 
 
