@@ -52,6 +52,30 @@ Class register {
 
         $this->myRender('register.twig');
     }
-
+  function checkuser() {
+        $errors = array();
+        if (empty($_POST['username']) || !preg_match('/^[a-zA-Z0-9]+$/', $_POST['username'])) {
+            $errors['username'] = "Pseudo non accepté !";
+        }
+        if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = "Adresse email non valide !";
+        }
+        if (empty($_POST['password']) || $_POST['password'] != $_POST['password_confirm']) {
+           $errors['password'] = "Les mots de passe ne corresponde pas !";
+        }
+        if (empty($errors)) {
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $pdo = new accountDatabase('socialmedia');
+            $reponse = $pdo->checkUser($username);
+        
+            if ($reponse === true) {
+              $pdo->addUser($password, $username, $email);
+              echo "0";
+            }  
+        }
+     
+    }
 }
 ?>
