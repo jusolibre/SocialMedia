@@ -8,7 +8,7 @@
         private $pdo;
 
 
-        public function __construct($db_name, $db_user = 'root', $db_pass = 'online', $db_host = 'localhost')
+        public function __construct($db_name, $db_user = 'root', $db_pass = 'root', $db_host = 'localhost')
         {
             $this->db_name = $db_name;
             $this->db_user = $db_user;
@@ -19,7 +19,7 @@
 
         private function getPDO()
         {
-            $pdo = new PDO('mysql:dbname=socialmedia;host=localhost', 'root', 'online');
+            $pdo = new PDO("mysql:dbname=" . $this->db_name .";host=" . $this->db_host, $this->db_user, $this->db_pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;
         }
