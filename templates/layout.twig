@@ -173,7 +173,7 @@
                 });
             });
 			function checkDateNaissance(date_naissance) {
-				if (date_naissance.match("/^\d{4}-\d{2}-\d{2}$/")) {
+				if (date_naissance.match(/^\d{4}-\d\d-\d\d$/)) {
                 	console.log("true");
                     return (true);
 				}
@@ -182,26 +182,36 @@
 			};
 
 			$('#complement').on('submit', function (e) {
-				e.preventDefault();
                 var naissance = $('#naissance').val();
                 var prenom = $('#prenom').val();
                 var nom = $('#nom').val();
                 var age = $('#age').val();
 
+				console.log(prenom.length < 3);
+
                 if (checkDateNaissance(naissance) == false) {
-                    $('#naissanceSpan').text = "date de naissance incorect";
+                    $('#naissanceSpan').html = "date de naissance incorect";
+                    console.log("fail1");
+                    e.preventDefault();
                     return (false);
-                } else if (prenom.length == 0) {
-                    $('#prenomSpan').text = "prenom trop court (minimum 3 caractères)";
+                } else if (prenom.length < 3) {
+                    $('#prenomSpan').html = "prenom trop court (minimum 3 caractères)";
+                    console.log("fail2");
+                    e.preventDefault();
                     return (false);
-                } else if (nom.length == 0) {
-                    $('#nomSpan').text = "nom trop court (minimum 3 caractères)";
+                } else if (nom.length < 3) {
+                    $('#nomSpan').html = "nom trop court (minimum 3 caractères)";
+                    console.log("fail3");
+                    e.preventDefault();
                     return (false);
-                } else if (age > 0 && age < 100) {
-                    $('#ageSpan').text = "age incorect ( 0 < age < 100)";
+                } else if (age < 0 || age > 100) {
+                    $('#ageSpan').html = "age incorect ( 0 < age < 100)";
+                    console.log("age : " + age + " comp -> " + (age > 0 && age < 100));
+                    console.log("fail4");
+                    e.preventDefault();
                     return (false);
                 } else {
-                    $('#complement').check();
+                    return true;
                 }
 			});
 		});
