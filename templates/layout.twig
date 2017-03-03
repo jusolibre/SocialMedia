@@ -112,13 +112,78 @@
 	&copy; Untitled. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
       </div>
     </div>
-    <script src="{{ js }}/jquery.min.js"></script>
-    <script src="{{ js }}/skel.min.js"></script>
-    <script src="{{ js }}/skel-viewport.min.js"></script>
-    <script src="{{ js }}/util.js"></script>
+    <script type="text/javascript" src="{{ js }}/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ js }}/skel.min.js"></script>
+    <script type="text/javascript" src="{{ js }}/skel-viewport.min.js"></script>
+    <script type="text/javascript" src="{{ js }}/util.js"></script>
     <!--[if lte IE 8]><script src="{{ js }}/ie/respond.min.js"></script><![endif]-->
-    <script src="{{ js }}/main.js"></script>
-	<script src="{{ js }}/test.js"></script>
-    
+    <script type="text/javascript" src="{{ js }}/main.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+      $('#register').on('submit', function (e) {
+      e.preventDefault();
+      var username = $('#username').val();
+      var email = $('#mail').val();
+      var password = $('#password').val();
+      var password_confirm = $('#pass_confirm').val();
+      var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
+      var message = "Le mot de passe est OK!";
+      if (username.length < 3 || username.length > 16) { 
+        document.getElementById('user').textContent = "Le nom de l'utilisateur doit avoir entre 3 et 16 caractères";
+	}
+	else {
+        document.getElementById('user').textContent = "Le nom de l'utilisateur est bon";
+	}
+	if (!regexEmail.test(email)) {
+        document.getElementById('email').textContent = "Veuillez entrer un email valide";
+	}
+	else {
+        document.getElementById('email').textContent = "L'émail est valide";
+	}
+        if (password.length < 6) {
+			      message = "Erreur : la longueur du mot de passe doit être d'au moins 6 caractères";
+			      document.getElementById('pass').textContent = message;
+			      }
+			      var regexMdp = /\d+/;
+			      if (!regexMdp.test(password)) {
+			      message = "Erreur : le mot de passe ne contient aucun chiffre";
+			      document.getElementById('pass').textContent = message;
+			      }
+			      if (password === password_confirm) {
+			      document.getElementById('pass').textContent = message;
+			      }
+			      else {
+			      message = "Erreur : les mots de passe sont différents";
+			      document.getElementById('pass').textContent = message;
+			      }
+			      $.ajax({
+			      url: "http://localhost/html/SocialMedia/register/checkuser",// Le nom du fichier indiqué dans le formulaire
+			      type: "post",
+			      data: "username=" + $('#username').val() + "&password=" + $('#password').val() + "&email=" + $('#mail').val() + "&password_confirm=" + $('#pass_confirm').val(),
+			      dataType: 'text',
+			      success: function(html) {
+			      console.log(html);
+			      if (html[0] == "0") {
+			      $(location).attr('href', 'http://localhost/html/SocialMedia/profil');
+			      console.log("ok");
+			      }
+			      else {
+			      message = "Le nom de l'utilisateur n'est pas disponible";
+			      console.log(html);
+			      document.getElementById('dispo').textContent = message;
+			      console.log("not ok");
+			      }
+			      },
+			      error: function(err1, err2, err3) {
+			      console.log(err1);
+			      console.log(err3);
+			      console.log(err2);
+			      }
+			      }); 
+			      });
+			      });
+</script>
+
+	
   </body>
 </html>

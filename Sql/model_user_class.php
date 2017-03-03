@@ -70,6 +70,13 @@ class userDatabase
                 return $usertab;
             }
         }
+
+        public function searchUser($search) {
+            $req = $this->bdd->prepare("SELECT * FROM utilisateur WHERE email LIKE '%". $search ."%' OR nom LIKE '%". $search ."%' OR prenom LIKE '%". $search ."%' OR pays LIKE '%". $search ."%' OR ville LIKE '%". $search ."%'");
+            $req->execute();
+            $reponses = $req->fetchAll(PDO::FETCH_OBJ);
+            return $reponses;            
+        }
         
     }
 

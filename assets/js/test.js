@@ -48,14 +48,14 @@ $(document).ready(function() {
             document.getElementById('pass').textContent = message;
         }
         $.ajax({
-            url: "http://localhost/SocialMedia-master/register/checkuser",// Le nom du fichier indiqué dans le formulaire
+            url: "http://localhost/html/SocialMedia/register/checkuser",// Le nom du fichier indiqué dans le formulaire
             type: "post", // La méthode indiquée dans le formulaire (get ou post)
             data: "username=" + $('#username').val() + "&password=" + $('#password').val() + "&email=" + $('#mail').val() + "&password_confirm=" + $('#pass_confirm').val(), // Je sérialise les données (j'envoie toutes les valeurs présentes dans le formulaire)
             dataType: 'text',
             success: function(html) { // Je récupère la réponse du fichier PHP
                 console.log(html);
                 if (html[0] == "0") {
-                    $(location).attr('href', 'http://localhost/SocialMedia-master/profil');
+                    $(location).attr('href', 'http://localhost/html/SocialMedia/profil');
                     console.log("ok");
                 }
                 else {
