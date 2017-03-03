@@ -18,6 +18,7 @@ Class confirmation {
 
         echo $twig->render('confirmation.twig', [
             'logged' => $_SESSION["logged"],
+            'user' => $_SESSION["user"],
             'root' => WEBROOT,
             'asset' => ASSET,
             'js' => JS
@@ -31,6 +32,7 @@ Class confirmation {
 
         echo $twig->render($page, [
             'logged' => $_SESSION["logged"],
+            'user' => $_SESSION["user"],
             'root' => WEBROOT,
             'asset' => ASSET,
             'js' => JS

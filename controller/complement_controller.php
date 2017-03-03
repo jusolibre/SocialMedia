@@ -10,12 +10,26 @@ Class complement {
 
         echo $twig->render($page, [
             'logged' => $_SESSION['logged'],
+            'user' => $_SESSION['user'],
             'root' => WEBROOT,
             'asset' => ASSET,
             'js' => JS
         ]);
     }
-    
+
+    function test() {
+
+        $var = [
+            "user" => "test",
+            "name" => "vache"
+        ];
+
+        echo $_SESSION['id'] . " est votre id<br>";
+        echo "vos données sont :<br>";
+        var_dump($_SESSION['user']);
+        
+    }
+
     function insert(){
         if(!empty($_POST)){
             $errors = array();
@@ -36,8 +50,8 @@ Class complement {
 
                 $db = new userDatabase('socialmedia');
 
-                $db->updateUtilisateur($nom, $prenom, $age, $date_naissance, $_SESSION['id']);
-                $this->renderPage('confirmation.twig');
+                $db->updateUtilisateur($nom, $prenom, $age, $date_naissance, $_SESSION["id"]);
+                header('Location: '. WEBROOT . '/confirmation');
             }
         }
     }

@@ -52,7 +52,8 @@ Class register {
 
         $this->myRender('register.twig');
     }
-  function checkuser() {
+    
+    function checkuser() {
         $errors = array();
         if (empty($_POST['username']) || !preg_match('/^[a-zA-Z0-9]+$/', $_POST['username'])) {
             $errors['username'] = "Pseudo non accepté !";
@@ -71,7 +72,9 @@ Class register {
             $reponse = $pdo->checkUser($username);
         
             if ($reponse === true) {
-              $pdo->addUser($password, $username, $email);
+              $ret = $pdo->addUser($password, $username, $email);
+              $_SESSION['user'] = $ret;
+              $_SESSION['id'] = $ret['id'];
               echo "0";
             }  
         }
