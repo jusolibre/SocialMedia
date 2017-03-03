@@ -8,7 +8,8 @@ class userDatabase
 
         public function __construct()
         {
-            $this->bdd = new Database('socialmedia');
+            $bdd = new Database('socialmedia');
+            $this->bdd = $bdd->getter();
         }
 
         public function updateUtilisateur($nom, $prenom, $age, $date_naissance, $id)
