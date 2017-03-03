@@ -78,7 +78,30 @@ class userDatabase
             return $reponses;            
         }
 
+        public function login($username, $password = false){
+             $req = $this->bdd->prepare('SELECT * FROM compte WHERE username = :username');
+             $req->execute(['username' => $_POST['username']]);
+             $username = $req->fetch();
+
+             if(password_verify($_POST['password'], $user->password)){
+                 $_SESSION['auth'] = $user;
+                 $_SESSION = 'vous etes connecté';
+                 echo $_SESSION;
+
+             }
+
+             else {
+                 return false;
+             }
+
+
+        }
+
+
+
+
     }
+
 
 
 

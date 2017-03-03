@@ -30,7 +30,13 @@ Class connection
     {
         $username = $_POST["username"];
         $password = $_POST["password"];
-        $email = $_POST["email"];
+
+        if(!empty($_POST['username']) && !empty($_POST['password'])){
+
+
+        }
+
 
     }
+
 }
