@@ -27,11 +27,6 @@ if (isset($params[2])) {
 $actionName = isset($params[1]) ? $params[1] : 'index';
 
 
-if (isset($_GET['p'])) {
-   $page = $_GET['p'];
-}
-
-
 require_once("controller/" . $controllerName . "_controller.php");
 
 
