@@ -1,6 +1,7 @@
 <?php
 session_start();
-$_SESSION["logged"] = 0;
+if (!isset($_SESSION["logged"]))
+    $_SESSION["logged"] = 0;
 require 'vendor/autoload.php';
 
 define('ASSET', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']) . "assets/");
