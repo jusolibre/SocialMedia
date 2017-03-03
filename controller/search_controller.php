@@ -9,17 +9,32 @@ require_once("Class/class_twig.php");
 
 Class search {
 
-    function index() {
+    function renderPage($page) {
 
         $twig = myTwig::create();
 
-        echo $twig->render('search.twig', [
+        echo $twig->render($page, [
             'logged' => $_SESSION["logged"],
             'root' => WEBROOT,
             'asset' => ASSET,
             'js' => JS
         ]);
 
+    }
+    
+    function searchUser() {
+        
+    }
+    
+    function index() {
+        
+        echo $twig->render($page, [
+            'logged' => $_SESSION["logged"],
+            'root' => WEBROOT,
+            'asset' => ASSET,
+            'js' => JS
+        ]);
+        
     }
 
 }

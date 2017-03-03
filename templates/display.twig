@@ -1,0 +1,60 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<div class="row">
+<div class="3u -1u 12u(mobile) 6u(tablet) -1u(tablet)">
+     <div>
+	<section>
+		<header>
+		<img src="{{ asset }}css/images/background.png" width="100%" class="img-circle">
+		<h2 style="padding-top: 20px;">{{ userDisplay.nom }} {{ userDisplay.prenom }}</h2>
+		</header>
+		{% if friend == 0 %}
+		   <button onclick="addFriend({{userDisplay.id}})">Ajouter en Amis</button>
+		{% elseif friend == 1 %}
+		   <button>Demande en attente</button>
+		{% endif %}
+		<p style="text-align: center; padding-top: 20px;">{{ userDisplay.description }}</p>
+		<footer>
+		<p>Here is a place where we could hold for more options</p>
+		</footer>
+	</section>
+    </div>
+    <div class="topMargin">
+    <section>
+    Ici on pourrais mettre les demandes d'amis ?
+    </section>
+    </div>
+</div>
+<div class=" 7u 8u(mobile) -2u(mobile) 6u(tablet) -1u(tablet)">
+	<section>
+	{% if friend == 2 %}
+	<form action"" method="POST" id="postMessage">
+	      <label for="comment">Postez un message sur le mur de votre amis :</label>
+	      <input type="text" name="comment" id="comment">
+	      <button type="submit">Poster</button>
+	</form>
+	{% endif %}
+	{% for message in userDisplay.wall %}
+			<div class="topMargin">
+				<header>
+					<h3>What happen's recently ?</h3>
+				</header>
+				<div class="row">
+		     		<div class="10u -1u 10u(mobile) -1u(mobile) 10u(tablet) -1u(tablet)">
+		     			<p>{{ message.user.prenom }} {{ message.user.nom }} à dit :</p>
+						<p>{{ message.message }}</p>
+		     		</div>
+				</div>
+				<div class="row">
+					<div class="4u -4u 4u(mobile) -4u(mobile) 4u(tablet) -4u(tablet)">
+		          		<div class="footer">What about the hour here ?</div>
+		     		</div>
+				</div>
+			</div>
+		{% endfor %}
+	</section>
+</div>
+</div>
+<div class="padding"></div>
+{% endblock %}

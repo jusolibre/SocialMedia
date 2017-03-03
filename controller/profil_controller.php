@@ -79,7 +79,7 @@ Class profil
         
     }
 
-    function index($tab)
+    function index()
     {
 
         $twig = myTwig::create();
