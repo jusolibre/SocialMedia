@@ -32,10 +32,8 @@ class accountDatabase
         $req = $this->bdd->prepare('INSERT INTO compte SET username = ?, password = ?, email = ?, id_utilisateur = ?, confirmation_token = ?');
         $newPassword = password_hash($password, PASSWORD_BCRYPT);
         $token = $this->str_random(60);
-        $_SESSION["id"] = $id;
         $req->execute(array($username, $newPassword, $email, $id, $token));
-        $_SESSION["user"] = array($username, $newPassword, $email, $id, $token);
-        return true;
+        return array('username' => $username, 'password' => $newPassword, 'email' => $email, 'id' => $id, 'token' => $token);
     }
 
     public function checkUser($username)
@@ -69,5 +67,11 @@ class accountDatabase
         $req->bindParam(':confirmation_token', $tmp, PDO::PARAM_BOOL);
         $req->bindParam(':id', $id);
         $req->execute();
+    }
+
+    public function test() {
+
+        $_SESSION['test'] = "test";
+
     }
 }
