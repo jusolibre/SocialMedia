@@ -8,7 +8,8 @@ class userDatabase
 
         public function __construct()
         {
-            $this->bdd = new Database('socialmedia');
+            $bdd = new Database('socialmedia');
+            $this->bdd = $bdd->getter();
         }
 
         public function updateUtilisateur($nom, $prenom, $age, $date_naissance, $id)
@@ -78,18 +79,14 @@ class userDatabase
             return $reponses;            
         }
 
-        public function login($username, $password = false){
+        public function login($username, $password){
              $req = $this->bdd->prepare('SELECT * FROM compte WHERE username = :username');
-             $req->execute(['username' => $_POST['username']]);
-             $username = $req->fetch();
+             $req->execute([':username' => $username]);
+             $user= $req->fetch();
 
-             if(password_verify($_POST['password'], $user->password)){
-                 $_SESSION['auth'] = $user;
-                 $_SESSION = 'vous etes connecté';
-                 echo $_SESSION;
-
+             if(password_verify($password, $user['password'])){
+                 return $user;
              }
-
              else {
                  return false;
              }
