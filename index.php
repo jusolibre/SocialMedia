@@ -20,7 +20,7 @@ if ((isset($params[0]) && !empty($params[0])
 else
     $controllerName = 'home';
 
-if ($_SESSION['logged'] == false && $controllerName != 'connection')
+if ($_SESSION['logged'] == false && $controllerName != 'connection' && $controllerName != "register")
     $controllerName = 'home';
 
 if (isset($params[2])) {
