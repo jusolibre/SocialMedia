@@ -3,26 +3,93 @@
 {% block title %}Account management{% endblock %}
 
 {% block content %}
+{#	<div class="row">
+		<div class="col-sm-3">
+			<ul class="nav nav-tabs tabs-left">
+				<li class="active"><a href="#email" data-toggle="tab">email</a></li>
+				<li><a href="#description" data-toggle="tab">Description</a></li>
+				<li><a href="#photo" data-toggle="tab">Photo</a></li>
+				<li><a href="#date" data-toggle="tab">Date de naissance</a></li>
+				<li><a href="#pays" data-toggle="tab">Pays</a></li>
+				<li><a href="#ville" data-toggle="tab">Ville</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-9">
+			<div class="tab-content">
+                <a href="#email" data-toggle="tab">Changer votre adresse eMail:</a><br/>
+                <input type="email" /> <br/>
+                <a href="#email" data-toggle="tab">Changer votre adresse eMail:</a><br/>
+                <input type="text" class="form-control" placeholder="Description"><br/>
+                <input type="text" class="form-control" placeholder="Jane Doe"><br/>
+                <input type="text" class="form-control" placeholder="Jane Doe"><br/>
+                <input type="text" class="form-control" placeholder="Jane Doe"><br/>
+                <input type="text" class="form-control" placeholder="Jane Doe"><br/>
+			</div>
+			<button type="submit" class="btn btn-primaryy">Valider</button>
+		</div>
+	</div>#}
+
+<divclass="padding"></div>
 <div class="row">
-     <div class="col-sm-3">
-     	  <ul class="nav nav-tabs tabs-left">
-	      <li class="active"><a href="#email" data-toggle="tab">email</a></li>
-	      <li><a href="#description" data-toggle="tab">Description</a></li>
-	      <li><a href="#photo" data-toggle="tab">Photo</a></li>
-	      <li><a href="#date" data-toggle="tab">Date de naissance</a></li>
-	      <li><a href="#pays" data-toggle="tab">Pays</a></li>
-	      <li><a href="#ville" data-toggle="tab">Ville</a></li>
-	  </ul>
-     </div>
-     <div class="col-sm-9">
-     	  <div class="tab-content">
-               <div class="tab-pane active" id="email">Changez votre email ici.</div>
-	       <div class="tab-pane" id="description">Changez votre description ici.</div>
-	       <div class="tab-pane" id="photo">Changez votre photo ici.</div>
-	       <div class="tab-pane" id="date">Changez votre date de naissance ici.</div>
-	       <div class="tab-pane" id="pays">Changez votre pays ici.</div>
-	       <div class="tab-pane" id="ville">Changez votre ville ici.</div>
-	       </div>
-     </div>
-</div>
-{% endblock %}
+    <div class="10u -1u 10u(mobile) -1u(mobile) 10u(tablet) -1u(tablet)">
+        <p id="dispo"></p>
+        <form>
+            <section>
+                <div class="row">
+                    <div class="4u -2u 4u(mobile) 4u(tablet)">
+                        <label for="username">eMail</label><span id="user"></span>
+                    </div>
+                    <div class="4u -2u 4u(mobile) 4u(tablet)">
+                        <input type="email" class="form-control" placeholder="eMail" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="4u -2u 4u(mobile) 4u(tablet)">
+                        <label for="password">Photo</label>
+                    </div>
+                    <div class="4u -2u 4u(mobile) 4u(tablet)">
+                        <input type="file" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="4u -2u 4u(mobile) 4u(tablet)">
+                        <label for="password">Date de naissance</label>
+                    </div>
+                    <div class="4u -2u 4u(mobile) 4u(tablet)">
+                        <input class="form-control" placeholder="Date"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="4u -2u 4u(mobile) 4u(tablet)">
+                        <label for="password">Pays</label>
+                    </div>
+                    <div class="4u -2u 4u(mobile) 4u(tablet)">
+                        <input class="form-control" placeholder="Pays"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="4u -2u 4u(mobile) 4u(tablet)">
+                        <label for="password">Ville</label>
+                    </div>
+                    <div class="4u -2u 4u(mobile) 4u(tablet)">
+                        <input class="form-control" placeholder="Ville"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="4u -2u 4u(mobile) 4u(tablet)">
+                        <label for="password">Description</label>
+                    </div>
+                    <div class="4u -2u 4u(mobile) 4u(tablet)">
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="2u -5u 2u(mobile) -4u(mobile) 2u(tablet) -4u(tablet)">
+                        <button type="submit" class="btn btn-primaryy">Valider</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+    <div class="padding"></div>
+    {% endblock %}
