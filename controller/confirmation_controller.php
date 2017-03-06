@@ -50,7 +50,8 @@ Class confirmation {
 
                 $db->updateToken($id);
 
-                $this->myRender('profil.twig');
+                session_write_close();
+                header("Location: " . WEBROOT . "/profil");
             }
 
             else {
