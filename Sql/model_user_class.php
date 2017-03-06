@@ -37,11 +37,22 @@ class userDatabase
         }
 
         public function getWall($id) {
-            $req = $this->bdd->prepare("SELECT * FROM commentaire WHERE id_mur= :id");
+            $req = $this->bdd->prepare("SELECT * FROM mur WHERE id_mur= :id");
             $req->bindParam(":id", $id);
             $req->execute();
-            $reponses = $req->fetchAll(PDO::FETCH_OBJ);
+            echo "id_mur ==>> " . $id;
+            $reponses = $req->fetchAll(PDO::FETCH_ASSOC);
+            echo "reponses ==>>";
+            var_dump($reponses);
             return $reponses;
+        }
+
+        public function insertWall($to, $message, $from) {
+            $req = $this->bdd->prepare("INSERT INTO mur SET id_mur = :mur, id_utilisateur= :utilisateur, message = :message, heure= NOW(), id_message = NULL ");
+            $req->bindParam(":mur", $to);
+            $req->bindParam(":utilisateur", $from);
+            $req->bindParam(":message", $message);
+            $req->execute();
         }
         
         public function getUserById($id) {
@@ -93,8 +104,6 @@ class userDatabase
 
 
         }
-
-
 
 
     }

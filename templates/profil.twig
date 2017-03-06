@@ -24,21 +24,22 @@
 <div class=" 7u 8u(mobile) -2u(mobile) 6u(tablet) -1u(tablet)">
 	<section>
 	<form action"" method="POST" id="postMessage">
+	      <div id="pageId" style="display:none;">{{user.id}}</div>
 	      <label for="comment">Postez un message sur mon mur :</label>
-	      <input type="text" name="comment" id="comment">
+	      <input type="text" name="comment" id="message">
 	      <button type="submit">Poster</button>
 	</form>
 	{% for message in wall %}
 			<div class="topMargin">
 				<header>
-				<a href="{{ root }}profil/display/{{message.user.id}}">
+				<a href="{{ root }}profil/display/{{message.message.id_utilisateur}}">
 				<h3>What happen's recently ?</h3>
 				</a>
 				</header>
 				<div class="row">
 		     		<div class="10u -1u 10u(mobile) -1u(mobile) 10u(tablet) -1u(tablet)">
 		     			<p>{{ message.user.prenom }} {{ message.user.nom }} à dit :</p>
-						<p>{{ message.message }}</p>
+						<p>{{ message.message.message }}</p>
 		     		</div>
 				</div>
 				<div class="row">

@@ -69,9 +69,4 @@ class accountDatabase
         $req->execute();
     }
 
-    public function test() {
-
-        $_SESSION['test'] = "test";
-
-    }
 }

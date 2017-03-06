@@ -120,7 +120,7 @@
     <script type="text/javascript" src="{{ js }}/main.js"></script>
     <script type="text/javascript">
 		$(document).ready(function() {
-		    $('#register').on('submit', function (e) {
+            $('#register').on('submit', function (e) {
                 e.preventDefault();
                 var username = $('#username').val();
                 var email = $('#mail').val();
@@ -172,22 +172,22 @@
                     }
                 });
             });
-			function checkDateNaissance(date_naissance) {
-				if (date_naissance.match(/^\d{4}-\d\d-\d\d$/)) {
-                	console.log("true");
+            function checkDateNaissance(date_naissance) {
+                if (date_naissance.match(/^\d{4}-\d\d-\d\d$/)) {
+                    console.log("true");
                     return (true);
-				}
+                }
                 console.log("false");
                 return (false);
-			};
+            };
 
-			$('#complement').on('submit', function (e) {
+            $('#complement').on('submit', function (e) {
                 var naissance = $('#naissance').val();
                 var prenom = $('#prenom').val();
                 var nom = $('#nom').val();
                 var age = $('#age').val();
 
-				console.log(prenom.length < 3);
+                console.log(prenom.length < 3);
 
                 if (checkDateNaissance(naissance) == false) {
                     $('#naissanceSpan').html = "date de naissance incorect";
@@ -213,8 +213,47 @@
                 } else {
                     return true;
                 }
-			});
-		});
+            });
+
+            $('#postMessage').on('submit', function (e) {
+                e.preventDefault();
+                var pageId = $('#pageId').html();
+                var message = $('#message').val();
+                $.ajax({
+                    url: "{{ root }}/profil/post",
+                    type: "post",
+                    data: "pageId=" + pageId + "&message=" + message,
+                    dataType: 'text',
+                    success: function (html) {
+                        console.log(html);
+                        if (html[0] == "0") {
+                            console.log("ok");
+                        } else {
+                            message = "Le nom de l'utilisateur n'est pas disponible";
+                            console.log(html);
+                            console.log("not ok");
+                        }
+                    }
+                });
+
+            });
+
+            function refreshWall() {
+                $.ajax({
+                    url: "{{ root }}/profil/displayNew",// Le nom du fichier indiqué dans le formulaire
+                    type: "post",
+                    data: "username=" + $('#username').val(),
+                    dataType: 'text',
+                    success: function (html) {
+                        console.log(html);
+                  		$("#wall").append(html);
+                    }
+                });
+			}
+
+            setInterval(refreshWall(), 3000);
+
+        });
 </script>
 
 	

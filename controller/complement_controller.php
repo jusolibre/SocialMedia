@@ -19,6 +19,9 @@ Class complement {
 
     function test() {
 
+        $db = new userDatabase();
+        $data = $db->getUserbyId($_SESSION['id']);
+        
         $var = [
             "user" => "test",
             "name" => "vache"
@@ -27,6 +30,8 @@ Class complement {
         echo $_SESSION['id'] . " est votre id<br>";
         echo "vos données sont :<br>";
         var_dump($_SESSION['user']);
+        echo "data are => <br>";
+        var_dump($data);
         
     }
 
