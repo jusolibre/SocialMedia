@@ -239,10 +239,12 @@
             });
 
             function refreshWall() {
-                $.ajax({
-                    url: "{{ root }}/profil/displayNew",// Le nom du fichier indiqué dans le formulaire
+										 var loc = location.href.split('&');
+										 var id = loc[1].split('/');
+										 $.ajax({
+                    url: "{{ root }}/profil/displayNew&" . id,
                     type: "post",
-                    data: "username=" + $('#username').val(),
+                    data: "",
                     dataType: 'text',
                     success: function (html) {
                         console.log(html);
@@ -250,10 +252,13 @@
                     }
                 });
 			}
-
-            setInterval(refreshWall(), 3000);
-
+										 
+										 /*setInterval(refreshWall(), 3000);*/
+										 refreshWall();
         });
+
+
+										 
 </script>
 
 	

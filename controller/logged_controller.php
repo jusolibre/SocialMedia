@@ -7,9 +7,11 @@
  */
 require_once("Class/class_twig.php");
 
-Class logged {
+Class logged
+{
 
-    function index() {
+    function index()
+    {
 
         $twig = myTwig::create();
 
@@ -21,6 +23,4 @@ Class logged {
         ]);
 
     }
-
-
 }

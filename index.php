@@ -23,8 +23,8 @@ else
 if ($_SESSION['logged'] == false && $controllerName != 'connection' && $controllerName != "register")
     $controllerName = 'home';
 
-if (isset($params[2])) {
-    $actionParam = array_slice($params, 2);
+if (isset($_GET['id'])) {
+    $actionParam = explode('/', $_GET['id']);
     var_dump($actionParam);
 }
 

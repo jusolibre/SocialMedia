@@ -10,11 +10,12 @@ require_once( SQL . "/model_user_class.php");
 
 Class profil
 {
-    function renderPage($page, $user, $wall) {
+    function renderPage($page, $user, $wall)
+    {
 
         $twig = myTwig::create();
 
-        echo $twig->render($page , [
+        echo $twig->render($page, [
             'logged' => $_SESSION["logged"],
             'root' => WEBROOT,
             'asset' => ASSET,
@@ -23,44 +24,46 @@ Class profil
             'user' => $user,
             'wall' => $wall
         ]);
-        
+
     }
 
-    function post() {
+    function post()
+    {
         $user = new userDatabase();
 
         if (isset($_POST['message']) && !empty($_POST['message'])) {
             $message = $_POST['message'];
-            
+
             if (isset($_POST['pageId']) && !empty($_POST['pageId'])) {
                 $pageId = $_POST['pageId'];
                 $user->insertWall($pageId, $message, $_SESSION['id']);
             } else {
                 $user->insertWall($_SESSION['id'], $message, $_SESSION['id']);
-            }            
+            }
             echo "0";
-        } else {            
-            echo "1";            
+        } else {
+            echo "1";
         }
     }
-    
-    function display($tab) {
+
+    function display($tab)
+    {
 
         if (!isset($tab) || !isset($tab[0])) {
             $profil = new profil;
             $profil->index();
-        }
-        else {
+        } else {
             $db = new userDatabase();
             $user = $db->getUserById($_SESSION['id']);
             $wall = $this->getWall($tab[0], $db);
             $this->renderPage('display.twig', $user, $wall);
-        
+
         }
-        
+
     }
 
-    function getWall($id, $db) {
+    function getWall($id, $db)
+    {
         $messages = $db->getWall($id);
         $wall = [];
         $i = 0;
@@ -77,7 +80,8 @@ Class profil
         return $wall;
     }
 
-    function getToWall($id, $db) {
+    function getToWall($id, $db)
+    {
         $messages = $db->getWall($id);
         $wall = [];
         $i = 0;
@@ -96,7 +100,8 @@ Class profil
         return $wall;
     }
 
-    function myDisplayNew($datas) {
+    function myDisplayNew($datas)
+    {
         foreach ($datas as $data) {
             echo "<div class=\"topMargin\">
 				<header>
@@ -117,7 +122,8 @@ Class profil
         }
     }
 
-    function displayNew() {
+    function displayNew()
+    {
         $db = new userDatabase();
         $wall = $this->getToWall($_SESSION['id'], $db);
         $this->myDisplayNew($wall);
@@ -131,7 +137,8 @@ Class profil
         $this->renderPage('profil.twig', $user, $wall);
     }
 
-    function deco(){
+    function deco()
+    {
         $_SESSION = array();
         session_destroy();
         header('Location:' . WEBROOT . 'home');
