@@ -60,6 +60,8 @@ class userDatabase
             $req->bindParam(":id", $id);
             $req->execute();
             $reponse = $req->fetch(PDO::FETCH_OBJ);
+            echo "<br>$id<br>";
+            var_dump($req);
             return $reponse;
         }
         

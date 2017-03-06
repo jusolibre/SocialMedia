@@ -20,6 +20,9 @@ if ((isset($params[0]) && !empty($params[0])
 else
     $controllerName = 'home';
 
+if ($_SESSION['logged'] == false && $controllerName != 'connection')
+    $controllerName = 'home';
+
 if (isset($params[2])) {
     $actionParam = array_slice($params, 2);
     var_dump($actionParam);
