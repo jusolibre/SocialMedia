@@ -14,7 +14,6 @@ Class profil
 
         $twig = myTwig::create();
 
-        
         echo $twig->render($page , [
             'logged' => $_SESSION["logged"],
             'root' => WEBROOT,
@@ -130,5 +129,11 @@ Class profil
         $user = $db->getUserById($_SESSION['id']);
         $wall = $this->getWall($_SESSION['id'], $db);
         $this->renderPage('profil.twig', $user, $wall);
+    }
+
+    function deco(){
+        $_SESSION = array();
+        session_destroy();
+        header('Location:' . WEBROOT . 'home');
     }
 }
