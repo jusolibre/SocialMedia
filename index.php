@@ -10,7 +10,6 @@ define('SQL', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']) . "Sql")
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 define('WEBROOT', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
 
-
 if (isset($_GET['p']))
     $params = explode('/', $_GET['p']);
 
@@ -20,12 +19,11 @@ if ((isset($params[0]) && !empty($params[0])
 else
     $controllerName = 'home';
 
-if ($_SESSION['logged'] == false && $controllerName != 'connection' && $controllerName != "register")
+if ($_SESSION['logged'] == false && $controllerName != 'connection' && $controllerName != "register" && $controllerName != "complement")
     $controllerName = 'home';
 
 if (isset($_GET['id'])) {
     $actionParam = explode('/', $_GET['id']);
-    var_dump($actionParam);
 }
 
 $actionName = isset($params[1]) ? $params[1] : 'index';
