@@ -76,7 +76,6 @@ Class profil
             $wall[$i] = $tmpTab;
             $i = $i + 1;
         }
-        $_SESSION['displayed'] = $i;
         return $wall;
     }
 
@@ -86,17 +85,13 @@ Class profil
         $wall = [];
         $i = 0;
         foreach ($messages as $message) {
-
-            if ($i < $_SESSION['displayed']) {
-                $tmpTab = [
-                    "user" => $db->getUserById($message['id_utilisateur']),
-                    "message" => $message
-                ];
-                $wall[$i] = $tmpTab;
-            }
+            $tmpTab = [
+                "user" => $db->getUserById($message['id_utilisateur']),
+                "message" => $message
+            ];
+            $wall[$i] = $tmpTab;
             $i = $i + 1;
         }
-        $_SESSION['displayed'] = $i;
         return $wall;
     }
 
@@ -109,8 +104,8 @@ Class profil
 				</header>
 				<div class=\"row\">
 		     		<div class=\"10u -1u 10u(mobile) -1u(mobile) 10u(tablet) -1u(tablet)\">
-		     			<p> $data.user.prenom $data.user.nom à dit :</p>
-						<p> $data.message.message </p>
+		     			<p> " . $data["user"]->prenom . " " .  $data["user"]->nom . " à dit :</p>
+						<p> " . $data["message"]["message"] . " </p>
 		     		</div>
 				</div>
 				<div class=\"row\">
@@ -122,10 +117,14 @@ Class profil
         }
     }
 
-    function displayNew()
+    function displayNew($tab = null)
     {
         $db = new userDatabase();
-        $wall = $this->getToWall($_SESSION['id'], $db);
+        if (!isset($tab) || !isset($tab[0])) {
+            $wall = $this->getToWall($_SESSION['id'], $db);
+        } else {
+            $wall = $this->getToWall($tab[0], $db);
+        }
         $this->myDisplayNew($wall);
     }
 

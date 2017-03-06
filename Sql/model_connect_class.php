@@ -8,7 +8,7 @@
         private $pdo;
 
 
-        public function __construct($db_name, $db_user = 'root', $db_pass = 'online', $db_host = 'localhost')
+        public function __construct($db_name, $db_user = 'root', $db_pass = 'root', $db_host = 'localhost')
         {
             $this->db_name = $db_name;
             $this->db_user = $db_user;

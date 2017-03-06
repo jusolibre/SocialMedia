@@ -29,6 +29,7 @@
 	      <input type="text" name="comment" id="message">
 	      <button type="submit">Poster</button>
 	</form>
+		<div id="wall">
 	{% for message in wall %}
 			<div class="topMargin">
 				<header>
@@ -49,8 +50,48 @@
 				</div>
 			</div>
 		{% endfor %}
+		</div>
 	</section>
 </div>
 </div>
 <div class="padding"></div>
+<script>
+    function refreshWall() {
+        var loc = location.href.split('&');
+        if (loc.length > 1)
+        	var id = loc[1].split('/');
+		else
+		    var id = -1;
+        if (id > 0) {
+            $.ajax({
+                url: "{{ root }}profil/displayNew&".id,
+                type: "post",
+                data: "",
+                dataType: 'text',
+                success: function (html) {
+                    //console.log(html);
+					$("#wall").empty();
+                    console.log($("#wall").html());
+                    $("#wall").append(html);
+                    setTimeout(refreshWall, 3000);
+                }
+            });
+        } else {
+            $.ajax({
+                url: "{{ root }}profil/displayNew",
+                type: "post",
+                data: "",
+                dataType: 'text',
+                success: function (html) {
+                    //console.log(html);
+					$("#wall").empty();
+                    console.log($("#wall").html());
+                    $("#wall").append(html);
+                    setTimeout(refreshWall, 3000);
+                }
+            });
+		}
+    }
+    refreshWall();
+</script>
 {% endblock %}

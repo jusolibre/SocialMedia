@@ -1,8 +1,17 @@
 <?php
 session_start();
-if (!isset($_SESSION["logged"]))
-    $_SESSION["logged"] = 0;
+if (!isset($_SESSION["logged"])) {
+    if (isset($_COOKIE['id'])) {
+        $_SESSION["logged"] = 1;
+        $_SESSION["id"] = $_COOKIE['id'];
+        $_SESSION["user"] = $_COOKIE['user'];
+    }
+    else
+        $_SESSION["logged"] = 0;
+}
+
 require 'vendor/autoload.php';
+
 
 define('ASSET', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']) . "assets/");
 define('JS', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']) . "assets/js/");

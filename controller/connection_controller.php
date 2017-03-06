@@ -38,13 +38,14 @@ Class connection
                 echo 'Mauvais mot de passe ou mauvais pseudo ';
             }else {
                 $_SESSION['id'] = $user['id_utilisateur'];
+                setcookie('id', $user['id_utilisateur'], time() + (86400 * 7) * 7);
+                setcookie('user', $user, time() + (86400 * 7) * 7);
                 $_SESSION['logged'] = true;
                 session_write_close();
-                    header('Location: ' . WEBROOT . "profil");
+                header('Location: ' . WEBROOT . "profil");
             }
 
         }
-
 
     }
 

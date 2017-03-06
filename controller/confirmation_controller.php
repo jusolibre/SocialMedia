@@ -51,7 +51,7 @@ Class confirmation {
                 $db->updateToken($id);
 
                 session_write_close();
-                header("Location: " . WEBROOT . "/profil");
+                header("Location: " . WEBROOT . "profil");
             }
 
             else {

@@ -37,13 +37,10 @@ class userDatabase
         }
 
         public function getWall($id) {
-            $req = $this->bdd->prepare("SELECT * FROM mur WHERE id_mur= :id");
+            $req = $this->bdd->prepare("SELECT * FROM mur WHERE id_mur= :id ORDER BY id DESC");
             $req->bindParam(":id", $id);
             $req->execute();
-            echo "id_mur ==>> " . $id;
             $reponses = $req->fetchAll(PDO::FETCH_ASSOC);
-            echo "reponses ==>>";
-            var_dump($reponses);
             return $reponses;
         }
 
@@ -102,9 +99,7 @@ class userDatabase
                  return false;
              }
 
-
         }
-
 
     }
 

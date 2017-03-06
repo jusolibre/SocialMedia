@@ -27,7 +27,7 @@
     </div>
 </div>
 <div class=" 7u 8u(mobile) -2u(mobile) 6u(tablet) -1u(tablet)">
-	<section id="wall">
+	<section>
 	{% if friend == 2 %}
 	<form action="" method="POST" id="postMessage">
 	      <label for="comment">Postez un message sur le mur de votre amis :</label>
@@ -35,6 +35,7 @@
 	      <button type="submit">Poster</button>
 	</form>
 	{% endif %}
+		<div id="wall">
 	{% for message in wall %}
 			<div class="topMargin">
 				<header>
@@ -53,8 +54,45 @@
 				</div>
 			</div>
 		{% endfor %}
+		</div>
 	</section>
 </div>
 </div>
 <div class="padding"></div>
+	<script>
+		function refreshWall() {
+            var loc = location.href.split('&');
+            if (loc.length > 1)
+                var id = loc[1].split('/');
+            else
+                var id = -1;
+            if (id > 0) {
+                $.ajax({
+                    url: "{{ root }}profil/displayNew&".id,
+                    type: "post",
+                    data: "",
+                    dataType: 'text',
+                    success: function (html) {
+                        console.log(html);
+                        $("#wall").empty();
+                        $("#wall").append(html);
+                        setTimeout(refreshWall, 3000);
+                    }
+                });
+            } else {
+                $.ajax({
+                    url: "{{ root }}profil/displayNew",
+                    type: "post",
+                    data: "",
+                    dataType: 'text',
+                    success: function (html) {
+                        console.log(html);
+                        $("#wall").empty();
+                        $("#wall").append(html);
+                        setTimeout(refreshWall, 3000);
+                    }
+                });
+        }
+        refreshWall();
+	</script>
 {% endblock %}
