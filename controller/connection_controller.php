@@ -7,6 +7,7 @@
  */
 
 require_once("Class/class_twig.php");
+require_once (SQL . '/model_user_class.php');
 
 Class connection
 {
@@ -26,13 +27,21 @@ Class connection
     }
 
 
-    function login()
-    {
+    function login(){
         $username = $_POST["username"];
+        $db = new userDatabase();
         $password = $_POST["password"];
 
         if(!empty($_POST['username']) && !empty($_POST['password'])){
-
+            $user = $db->login($username, $password);
+            if($user == false){
+                echo 'Mauvais mot de passe ou mauvais pseudo ';
+            }else {
+                $_SESSION['id'] = $user['id_utilisateur'];
+                $_SESSION['logged'] = true;
+                session_write_close();
+                    header('Location: ' . WEBROOT . "profil");
+            }
 
         }
 

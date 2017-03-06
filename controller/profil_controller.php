@@ -130,4 +130,10 @@ Class profil
         $wall = $this->getWall($_SESSION['id'], $db);
         $this->renderPage('profil.twig', $user, $wall);
     }
+
+    function deco(){
+        $_SESSION = array();
+        session_destroy();
+        header('Location:' . WEBROOT . 'home');
+    }
 }
