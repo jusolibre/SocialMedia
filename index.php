@@ -20,6 +20,9 @@ if ((isset($params[0]) && !empty($params[0])
 else
     $controllerName = 'home';
 
+if ($_SESSION['logged'] == false && $controllerName != 'connection')
+    $controllerName = 'home';
+
 if (isset($_GET['id'])) {
     $actionParam = explode('/', $_GET['id']);
     var_dump($actionParam);

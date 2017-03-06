@@ -14,6 +14,7 @@ Class profil
 
         $twig = myTwig::create();
 
+        
         echo $twig->render($page , [
             'logged' => $_SESSION["logged"],
             'root' => WEBROOT,
