@@ -20,8 +20,8 @@ if ((isset($params[0]) && !empty($params[0])
 else
     $controllerName = 'home';
 
-if (isset($params[2])) {
-    $actionParam = array_slice($params, 2);
+if (isset($_GET['id'])) {
+    $actionParam = explode('/', $_GET['id']);
     var_dump($actionParam);
 }
 
