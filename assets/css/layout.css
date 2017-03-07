@@ -18,3 +18,11 @@
 .topMargin {
     margin-top: 50px;
 }
+
+li {
+    list-style: none;
+}
+
+.button {
+    background-color: rgba(30, 100, 250);
+}
