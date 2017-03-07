@@ -24,6 +24,8 @@ class friends {
     $db = new Database('socialmedia');
     $bdd = $db->getter();
 
+    $_SESSION['user'] = $bdd->getUserById($_SESSION['id']);
+    
    if (isset($tab[0]) && $tab[0] == 'add')
  {
   $add = htmlspecialchars(($tab[1]));
