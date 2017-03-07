@@ -3,6 +3,12 @@
 {% block content %}
      <div class=" 7u 8u(mobile) -2u(mobile) 6u(tablet) -1u(tablet)">
 	<section width="100%">
+	<form method="POST" action="{{ root }}friends">
+	<label for="">Recherchez un amis</label>
+	<input type="text" name="search">
+</form>
+	</section>
+	<section width="100%">
 	{{ data|raw }}
 	</section>
 	</div>
