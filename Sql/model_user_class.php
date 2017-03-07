@@ -101,6 +101,41 @@ class userDatabase
 
         }
 
+        public function manageEmail($id, $email){
+            $req = $this->bdd->prepare('UPDATE utilisateur SET email= :email WHERE id= :id');
+            $req->bindParam(':id', $id);
+            $req->bindParam(':email', $email);
+            $req->execute();
+        }
+
+        public function manageDate_naissance($id, $date_naissance){
+            $req = $this->bdd->prepare('UPDATE utilisateur SET date_naissance= :date_naissance WHERE id= :id');
+            $req->bindParam(':id', $id);
+            $req->bindParam(':date_naissance', $date_naissance);
+            $req->execute();
+        }
+
+        public function managePays($id, $pays){
+            $req = $this->bdd->prepare('UPDATE utilisateur SET pays= :pays WHERE id= :id');
+            $req->bindParam(':id', $id);
+            $req->bindParam(':pays', $pays);
+            $req->execute();
+        }
+
+        public function manageVille($id, $ville){
+            $req = $this->bdd->prepare('UPDATE utilisateur SET ville= :ville WHERE id= :id');
+            $req->bindParam(':id', $id);
+            $req->bindParam(':ville', $ville);
+            $req->execute();
+        }
+
+        public function manageDescription($id, $description){
+            $req = $this->bdd->prepare('UPDATE utilisateur SET description= :description WHERE id= :id');
+            $req->bindParam(':id', $id);
+            $req->bindParam(':description', $description);
+            $req->execute();
+        }
+
     }
 
 
