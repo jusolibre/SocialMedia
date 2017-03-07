@@ -19,7 +19,7 @@ class friends {
     }
 
 
-   function friend($tab = null) {
+   function index($tab = null) {
 
     $db = new Database('socialmedia');
     $bdd = $db->getter();
@@ -59,25 +59,13 @@ class friends {
       $req2 = $bdd->query("SELECT * FROM amis WHERE utilisateur1 = '" . $_SESSION['user']->id . "' AND utilisateur2 = '" . $key['id'] . "'");
       $reponse2 = $req2->rowCount();
 
-         if (($reponse1 + $reponse2) > 1)
-        {
-         $display = $display . "&harr; est un ami mutuel";
-        }
-     elseif ($reponse1)
-      {
-       $display = $display . "&larr; vous le suivez";
-      }
-     elseif ($reponse2)
-   {
-      $display = $display . "$rarr; vous suit";
-    } 
     if (!$reponse1)
      {
        $display = $display . " <a href='". WEBROOT ."friends/friend&add/" . $key['id'] . "'><button class='button'>follow</button></a></li>";
     }
      else
     {        
-      $display = $display . " <a href='". WEBROOT ."friends/friend&remove/" . $key['id'] . "'><button class='button'>Suprimmer</button></a></li>";
+      $display = $display . " <a href='". WEBROOT ."friends/friend&remove/" . $key['id'] . "'><button class='button2'>Suprimmer</button></a></li>";
     }
    }
    $this->renderPage($display);

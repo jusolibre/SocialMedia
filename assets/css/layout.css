@@ -24,5 +24,29 @@ li {
 }
 
 .button {
-    background-color: rgba(30, 100, 250);
+    float: right;
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #09DFDF;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 14px;
+    padding: 5px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.button2 {
+    float: right;
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #DF0F09;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 14px;
+    padding: 5px;
+    transition: all 0.5s;
+    cursor: pointer;
 }
