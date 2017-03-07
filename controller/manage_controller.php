@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: linuxboot34
- * Date: 27/02/17
- * Time: 16:49
- */
+
 require_once("Class/class_twig.php");
 
 Class manage {
@@ -21,5 +16,17 @@ Class manage {
         ]);
 
     }
-
+    public function uploadImg()
+    {
+        var_dump($_FILES);
+        $imgProfile ="imgProfile/";
+        $chemin = ROOT . $imgProfile . $_SESSION['id'] . '.svg';
+        echo $chemin;
+        if (move_uploaded_file($_FILES['img']['tmp_name'], $chemin)) {
+            echo 'Upload effectué !';
+        }
+        else{
+            echo 'Echec de l\'upload  !';
+        }
+    }
 }

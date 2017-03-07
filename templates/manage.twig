@@ -8,14 +8,14 @@
 <div class="row">
     <div class="10u -1u 10u(mobile) -1u(mobile) 10u(tablet) -1u(tablet)">
         <p id="dispo"></p>
-        <form>
+        <form method="post" action="manage/uploadImg">
             <section>
                 <div class="row">
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
                         <label for="username">eMail</label><span id="user"></span>
                     </div>
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
-                        <input type="email" class="form-control" placeholder="eMail" />
+                        <input type="email" class="form-control" placeholder="eMail" name="email" />
                     </div>
                 </div>
                 <div class="row">
@@ -23,7 +23,7 @@
                         <label for="password">Photo</label>
                     </div>
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
-                        <input type="file" class="form-control"/>
+                        <input type="file" class="form-control" name="img" value="img"/>
                     </div>
                 </div>
                 <div class="row">
@@ -31,7 +31,7 @@
                         <label for="password">Date de naissance</label>
                     </div>
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
-                        <input class="form-control" placeholder="Date"/>
+                        <input class="form-control" placeholder="Date" name="date"/>
                     </div>
                 </div>
                 <div class="row">
@@ -39,7 +39,7 @@
                         <label for="password">Pays</label>
                     </div>
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
-                        <input class="form-control" placeholder="Pays"/>
+                        <input class="form-control" placeholder="Pays" name="pays"/>
                     </div>
                 </div>
                 <div class="row">
@@ -47,7 +47,7 @@
                         <label for="password">Ville</label>
                     </div>
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
-                        <input class="form-control" placeholder="Ville"/>
+                        <input class="form-control" placeholder="Ville" name="ville"/>
                     </div>
                 </div>
 
@@ -56,7 +56,7 @@
                         <label for="password">Description</label>
                     </div>
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
-                        <textarea class="form-control" rows="3"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Courte description" name="description"></textarea>
                     </div>
                 </div>
                 <div class="row">
