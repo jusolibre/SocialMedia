@@ -47,6 +47,7 @@ if (!method_exists($controller, $actionName)) {
     $actionName = 'index';
 }
 
+
 if (isset($actionParam)){
     $controller->$actionName($actionParam);
 }

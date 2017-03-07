@@ -40,6 +40,7 @@ Class connection
                 $_SESSION['id'] = $user['id_utilisateur'];
                 setcookie('id', $user['id_utilisateur'], time() + (86400 * 7) * 7);
                 setcookie('user', $user, time() + (86400 * 7) * 7);
+                $_SESSION['user'] = $db->getUserById($user['id_utilisateur']);
                 $_SESSION['logged'] = true;
                 session_write_close();
                 header('Location: ' . WEBROOT . "profil");
