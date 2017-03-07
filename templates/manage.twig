@@ -8,14 +8,14 @@
 <div class="row">
     <div class="10u -1u 10u(mobile) -1u(mobile) 10u(tablet) -1u(tablet)">
         <p id="dispo"></p>
-        <form method="post" action="manage/uploadImg">
+        <form method="post" action="manage/manage">
             <section>
                 <div class="row">
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
                         <label for="username">eMail</label><span id="user"></span>
                     </div>
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
-                        <input type="email" class="form-control" placeholder="eMail" name="email" />
+                        <input type="email" enctype="multipart/form-data" class="form-control" placeholder="eMail" name="email" />
                     </div>
                 </div>
                 <div class="row">
@@ -23,7 +23,7 @@
                         <label for="password">Photo</label>
                     </div>
                     <div class="4u -2u 4u(mobile) 4u(tablet)">
-                        <input type="file" class="form-control" name="img" value="img"/>
+                        <input type="file" class="form-control" id="img" name="img" value="img"/>
                     </div>
                 </div>
                 <div class="row">
@@ -61,7 +61,7 @@
                 </div>
                 <div class="row">
                     <div class="2u -5u 2u(mobile) -4u(mobile) 2u(tablet) -4u(tablet)">
-                        <button type="submit" class="btn btn-primaryy">Valider</button>
+                        <button type="submit" class="btn btn-primaryy" >Valider</button>
                     </div>
                 </div>
         </form>
