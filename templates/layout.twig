@@ -1,250 +1,232 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>{% block title %}{% endblock %}</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!--[if lte IE 8]><script src="{{ js }}/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="{{ asset }}css/main.css" />
-	  <link rel="stylesheet" href="{{ asset }}css/layout.css" type="text/css">
-    <!--[if lte IE 9]><link rel="stylesheet" href="{{ asset }}css/ie9.css" /><![endif]-->
-	  <script type="text/javascript" src="{{ js }}/jquery.min.js"></script>
-	  <script type="text/javascript" src="{{ js }}/skel.min.js"></script>
-	  <script type="text/javascript" src="{{ js }}/skel-viewport.min.js"></script>
-	  <script type="text/javascript" src="{{ js }}/util.js"></script>
-	  <!--[if lte IE 8]><script src="{{ js }}/ie/respond.min.js"></script><![endif]-->
-	  <script type="text/javascript" src="{{ js }}/main.js"></script>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<!--[if lte IE 8]><script src="{{ js }}/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="{{ asset }}css/main.css" />
+	<link rel="stylesheet" href="{{ asset }}css/layout.css" type="text/css">
+	<!--[if lte IE 9]><link rel="stylesheet" href="{{ asset }}css/ie9.css" /><![endif]-->
+	<script type="text/javascript" src="{{ js }}/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ js }}/skel.min.js"></script>
+	<script type="text/javascript" src="{{ js }}/skel-viewport.min.js"></script>
+	<script type="text/javascript" src="{{ js }}/util.js"></script>
+	<!--[if lte IE 8]><script src="{{ js }}/ie/respond.min.js"></script><![endif]-->
+	<script type="text/javascript" src="{{ js }}/main.js"></script>
 
-  </head>
-  <body>
-    <div id="page-wrapper">
-      <div id="header-wrapper">
+</head>
+<body>
+<div id="page-wrapper">
+	<div id="header-wrapper">
 		<header id="header" class="container">
-		  <div class="row">
-			<div class="12u 6u(tablet) 12u(mobile) 6u(desktop)" id="navBanner">
-			  <h1><a href="#" id="logo">Hm</a></h1>
-				<nav id="nav">
-					<a href="{{ root }}home">Home</a>
-					<a href="{{ root }}profil">Profil</a>
-					<a href="{{ root }}friends">Friend</a>
-					<!-- <form class="navbar-form collapse-search">
-					<input type="text" placeholder="Search">
-					<button type="submit">Submit</button>
-					</form> -->
-					{% if logged == false %}
-					<a href="{{ root }}register">Sign Up</a>
-					<a href="{{ root }}connection">Login</a>
-					{% else %}
-					<a href="{{ root }}manage">Setting</a>
-					<a href="{{ root }}profil/deco">Disconnect</a>
-					{% endif %}
-				</nav>
+			<div class="row">
+				<div class="12u 6u(tablet) 12u(mobile) 6u(desktop)" id="navBanner">
+					<h1><a href="#" id="logo">Hm</a></h1>
+					<nav id="nav">
+						<a href="{{ root }}home">Home</a>
+						<a href="{{ root }}profil">Profil</a>
+						<a href="{{ root }}friends">Friend</a>
+						<!-- <form class="navbar-form collapse-search">
+                        <input type="text" placeholder="Search">
+                        <button type="submit">Submit</button>
+                        </form> -->
+                        {% if logged == false %}
+							<a href="{{ root }}register">Sign Up</a>
+							<a href="{{ root }}connection">Login</a>
+                        {% else %}
+							<a href="{{ root }}manage">Setting</a>
+							<a href="{{ root }}profil/deco">Disconnect</a>
+                        {% endif %}
+					</nav>
+				</div>
 			</div>
-		  </div>
 		</header>
-      </div>
+	</div>
 
 
-      <div id="content-wrapper">
+	<div id="content-wrapper">
 		<div id="content">
-	  		<div class="container">
-	    		<div class="row">
-				{% block content %}{% endblock %}
-	    		</div>
-	  		</div>
+			<div class="container">
+				<div class="row">
+                    {% block content %}{% endblock %}
+				</div>
+			</div>
 		</div>
-      </div>
+	</div>
 
-      <div id="footer-wrapper">
-	<footer id="footer" class="container">
-	  <div class="row">
-	    <div class="8u 12u(mobile) 12u(tablet) 12u(desktop)">
-	      <section>
-		<h2>Links to Important Stuff</h2>
-		<div>
-		  <div class="row">
-		    <div class="3u 12u(mobile) 12u(tablet) 12u(desktop)">
-		      <ul class="link-list last-child">
-			<li><a href="#">Neque amet dapibus</a></li>
-			<li><a href="#">Sed mattis quis rutrum</a></li>
-			<li><a href="#">Accumsan suspendisse</a></li>
-			<li><a href="#">Eu varius vitae magna</a></li>
-		      </ul>
-		    </div>
-		    <div class="3u 12u(mobile) 12u(tablet) 12u(desktop)">
-		      <ul class="link-list last-child">
-			<li><a href="#">Neque amet dapibus</a></li>
-			<li><a href="#">Sed mattis quis rutrum</a></li>
-			<li><a href="#">Accumsan suspendisse</a></li>
-			<li><a href="#">Eu varius vitae magna</a></li>
-		      </ul>
-		    </div>
-		    <div class="3u 12u(mobile) 12u(tablet) 12u(desktop)">
-		      <ul class="link-list last-child">
-			<li><a href="#">Neque amet dapibus</a></li>
-			<li><a href="#">Sed mattis quis rutrum</a></li>
-			<li><a href="#">Accumsan suspendisse</a></li>
-			<li><a href="#">Eu varius vitae magna</a></li>
-		      </ul>
-		    </div>
-		    <div class="3u 12u(mobile) 12u(tablet) 12u(desktop)">
-		      <ul class="link-list last-child">
-			<li><a href="#">Neque amet dapibus</a></li>
-			<li><a href="#">Sed mattis quis rutrum</a></li>
-			<li><a href="#">Accumsan suspendisse</a></li>
-			<li><a href="#">Eu varius vitae magna</a></li>
-		      </ul>
-		    </div>
-		  </div>
-		</div>
-	      </section>
-	    </div>
-	    <div class="4u">
-	      <section>
-		<h2>An Informative Text Blurb</h2>
-		<p>
-		  Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed. Suspendisse eu
-		  varius nibh. Suspendisse vitae magna eget odio amet mollis. Duis neque nisi,
-		  dapibus sed mattis quis, sed rutrum accumsan sed. Suspendisse eu varius nibh
-		  lorem ipsum amet dolor sit amet lorem ipsum consequat gravida justo mollis.
-		</p>
-	      </section>
-	    </div>
-	  </div>
-	</footer>
-      </div>
-      <div id="copyright">
-	&copy; Untitled. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
-      </div>
-    </div>
-    <script type="text/javascript">
-		$(document).ready(function() {
-            $('#register').on('submit', function (e) {
-                e.preventDefault();
-                var username = $('#username').val();
-                var email = $('#mail').val();
-                var password = $('#password').val();
-                var password_confirm = $('#pass_confirm').val();
-                var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
-                var message = "Le mot de passe est OK!";
-                if (username.length < 3 || username.length > 16) {
-                    document.getElementById('user').textContent = "Le nom de l'utilisateur doit avoir entre 3 et 16 caractères";
-                } else {
-                    document.getElementById('user').textContent = "Le nom de l'utilisateur est bon";
-                }
-                if (!regexEmail.test(email)) {
-                    document.getElementById('email').textContent = "Veuillez entrer un email valide";
-                } else {
-                    document.getElementById('email').textContent = "L'émail est valide";
-                }
-                if (password.length < 6) {
-                    message = "Erreur : la longueur du mot de passe doit être d'au moins 6 caractères";
-                    document.getElementById('pass').textContent = message;
-                }
-                var regexMdp = /\d+/;
-                if (!regexMdp.test(password)) {
-                    message = "Erreur : le mot de passe ne contient aucun chiffre";
-                    document.getElementById('pass').textContent = message;
-                }
-                if (password === password_confirm) {
-                    document.getElementById('pass').textContent = message;
-                } else {
-                    message = "Erreur : les mots de passe sont différents";
-                    document.getElementById('pass').textContent = message;
-                }
-                $.ajax({
-                    url: "{{ root }}/register/checkuser",// Le nom du fichier indiqué dans le formulaire
-                    type: "post",
-                    data: "username=" + $('#username').val() + "&password=" + $('#password').val() + "&email=" + $('#mail').val() + "&password_confirm=" + $('#pass_confirm').val(),
-                    dataType: 'text',
-                    success: function (html) {
+	<div id="footer-wrapper">
+		<footer id="footer" class="container">
+			<div class="row">
+				<div class="8u 12u(mobile) 12u(tablet) 12u(desktop)">
+					<section>
+						<h2>A propos</h2>
+						<div>
+							<div class="row">
+								<div class="4u">
+									<section>
+										<h2>Des humains</h2>
+										<p>
+											Pour être l'architecte et gérer HackMedia, la matrice a choisi trois humains de la race des Developeurs d'Access Code School promo Abissy Link!
+											Ils se prénomme Fred.
+										</p>
+									</section>
+								</div>
+								<div class="4u">
+									<section>
+										<h2>An Informative Text Blurb</h2>
+										<p>
+											Pour être l'architecte et gérer Darkseed, la matrice a choisi un humain de la race des DevOps.
+											Il se prénomme Fred.
+										</p>
+									</section>
+								</div>
+								<div class="4u">
+									<section>
+										<h2>An Informative Text Blurb</h2>
+										<p>
+											Pour être l'architecte et gérer Darkseed, la matrice a choisi un humain de la race des DevOps.
+											Il se prénomme Fred.
+										</p>
+									</section>
+								</div>
+
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#register').on('submit', function (e) {
+            e.preventDefault();
+            var username = $('#username').val();
+            var email = $('#mail').val();
+            var password = $('#password').val();
+            var password_confirm = $('#pass_confirm').val();
+            var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
+            var message = "Le mot de passe est OK!";
+            if (username.length < 3 || username.length > 16) {
+                document.getElementById('user').textContent = "Le nom de l'utilisateur doit avoir entre 3 et 16 caractères";
+            } else {
+                document.getElementById('user').textContent = "Le nom de l'utilisateur est bon";
+            }
+            if (!regexEmail.test(email)) {
+                document.getElementById('email').textContent = "Veuillez entrer un email valide";
+            } else {
+                document.getElementById('email').textContent = "L'émail est valide";
+            }
+            if (password.length < 6) {
+                message = "Erreur : la longueur du mot de passe doit être d'au moins 6 caractères";
+                document.getElementById('pass').textContent = message;
+            }
+            var regexMdp = /\d+/;
+            if (!regexMdp.test(password)) {
+                message = "Erreur : le mot de passe ne contient aucun chiffre";
+                document.getElementById('pass').textContent = message;
+            }
+            if (password === password_confirm) {
+                document.getElementById('pass').textContent = message;
+            } else {
+                message = "Erreur : les mots de passe sont différents";
+                document.getElementById('pass').textContent = message;
+            }
+            $.ajax({
+                url: "{{ root }}/register/checkuser",// Le nom du fichier indiqué dans le formulaire
+                type: "post",
+                data: "username=" + $('#username').val() + "&password=" + $('#password').val() + "&email=" + $('#mail').val() + "&password_confirm=" + $('#pass_confirm').val(),
+                dataType: 'text',
+                success: function (html) {
+                    console.log(html);
+                    if (html[0] == "0") {
+                        $(location).attr('href', '{{ root }}/complement');
+                        console.log("ok");
+                    } else {
+                        message = "Le nom de l'utilisateur n'est pas disponible";
                         console.log(html);
-                        if (html[0] == "0") {
-                            $(location).attr('href', '{{ root }}/complement');
-                            console.log("ok");
-                        } else {
-                            message = "Le nom de l'utilisateur n'est pas disponible";
-                            console.log(html);
-                            document.getElementById('dispo').textContent = message;
-                            console.log("not ok");
-                        }
+                        document.getElementById('dispo').textContent = message;
+                        console.log("not ok");
                     }
-                });
-            });
-            function checkDateNaissance(date_naissance) {
-                if (date_naissance.match(/^\d{4}-\d\d-\d\d$/)) {
-                    console.log("true");
-                    return (true);
                 }
-                console.log("false");
+            });
+        });
+        function checkDateNaissance(date_naissance) {
+            if (date_naissance.match(/^\d{4}-\d\d-\d\d$/)) {
+                console.log("true");
+                return (true);
+            }
+            console.log("false");
+            return (false);
+        };
+
+        $('#complement').on('submit', function (e) {
+            var naissance = $('#naissance').val();
+            var prenom = $('#prenom').val();
+            var nom = $('#nom').val();
+            var age = $('#age').val();
+
+            console.log(prenom.length < 3);
+
+            if (checkDateNaissance(naissance) == false) {
+                $('#naissanceSpan').html = "date de naissance incorect";
+                console.log("fail1");
+                e.preventDefault();
                 return (false);
-            };
+            } else if (prenom.length < 3) {
+                $('#prenomSpan').html = "prenom trop court (minimum 3 caractères)";
+                console.log("fail2");
+                e.preventDefault();
+                return (false);
+            } else if (nom.length < 3) {
+                $('#nomSpan').html = "nom trop court (minimum 3 caractères)";
+                console.log("fail3");
+                e.preventDefault();
+                return (false);
+            } else if (age < 0 || age > 100) {
+                $('#ageSpan').html = "age incorect ( 0 < age < 100)";
+                console.log("age : " + age + " comp -> " + (age > 0 && age < 100));
+                console.log("fail4");
+                e.preventDefault();
+                return (false);
+            } else {
+                return true;
+            }
+        });
 
-            $('#complement').on('submit', function (e) {
-                var naissance = $('#naissance').val();
-                var prenom = $('#prenom').val();
-                var nom = $('#nom').val();
-                var age = $('#age').val();
-
-                console.log(prenom.length < 3);
-
-                if (checkDateNaissance(naissance) == false) {
-                    $('#naissanceSpan').html = "date de naissance incorect";
-                    console.log("fail1");
-                    e.preventDefault();
-                    return (false);
-                } else if (prenom.length < 3) {
-                    $('#prenomSpan').html = "prenom trop court (minimum 3 caractères)";
-                    console.log("fail2");
-                    e.preventDefault();
-                    return (false);
-                } else if (nom.length < 3) {
-                    $('#nomSpan').html = "nom trop court (minimum 3 caractères)";
-                    console.log("fail3");
-                    e.preventDefault();
-                    return (false);
-                } else if (age < 0 || age > 100) {
-                    $('#ageSpan').html = "age incorect ( 0 < age < 100)";
-                    console.log("age : " + age + " comp -> " + (age > 0 && age < 100));
-                    console.log("fail4");
-                    e.preventDefault();
-                    return (false);
-                } else {
-                    return true;
+        $('#postMessage').on('submit', function (e) {
+            e.preventDefault();
+            var pageId = $('#pageId').html();
+            var message = $('#message').val();
+            $.ajax({
+                url: "{{ root }}profil/post",
+                type: "post",
+                data: "pageId=" + pageId + "&message=" + message,
+                dataType: 'text',
+                success: function (html) {
+                    console.log(html);
+                    if (html[0] == "0") {
+                        console.log("ok");
+                    } else {
+                        message = "Le nom de l'utilisateur n'est pas disponible";
+                        console.log(html);
+                        console.log("not ok");
+                    }
                 }
             });
 
-            $('#postMessage').on('submit', function (e) {
-                e.preventDefault();
-                var pageId = $('#pageId').html();
-                var message = $('#message').val();
-                $.ajax({
-                    url: "{{ root }}profil/post",
-                    type: "post",
-                    data: "pageId=" + pageId + "&message=" + message,
-                    dataType: 'text',
-                    success: function (html) {
-                        console.log(html);
-                        if (html[0] == "0") {
-                            console.log("ok");
-                        } else {
-                            message = "Le nom de l'utilisateur n'est pas disponible";
-                            console.log(html);
-                            console.log("not ok");
-                        }
-                    }
-                });
+        });
 
-            });
-
-		});
+    });
 
 
-										 
+
 </script>
 
-	
-  </body>
+
+</body>
 </html>
