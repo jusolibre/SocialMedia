@@ -2,85 +2,88 @@
 require_once("Class/class_twig.php");
 require_once(SQL . "/model_connect_class.php");
 // Enumerer tous les membres
-class freinds {
+
+class friends {
    
-     function freinds() {
+     function renderPage($data) {
 
         $twig = myTwig::create();
 
-        echo $twig->render('freinds.twig', [
+        echo $twig->render('friends.twig', [
             'logged' => $_SESSION["logged"],
             'root' => WEBROOT,
             'asset' => ASSET,
-            'js' => JS
+            'js' => JS,
+            'data' => $data
         ]);
     }
 
 
-   function trouverMembres() {
+   function friend($tab = null) {
 
     $db = new Database('socialmedia');
     $bdd = $db->getter();
-    $req = $bdd->query("SELECT username FROM compte ORDER BY username");
-    $donnees = $q->fetch(PDO::FETCH_ASSOC);
-    var_dump($donnees);
 
-   foreach ($donnees as $key => $value)
+   if (isset($tab[0]) && $tab[0] == 'add')
  {
-    if ($donnees['username'] == $user)
-         {
-          continue;
-          }
-    echo "<li><a href='members.php?view="$donnees['username']."'>".$donnees['username']."</a>";
-      $follow = "Suivre";
-
-      $req1 = $this->db->query("SELECT * FROM amis WHERE utilisateur1 = '".$donnees['username']."' AND utilisateur2 = '$user'");
-       $reponse1 = $req1->rowCount();
-
-      $req1 = $this->db->query("SELECT * FROM amis WHERE utilisateur1 = '$user' AND utilisateur2 = '".$donnees['username']."'");
-      $reponse2 = $req2->rowCount();
-
-         if (($reponse1 + $reponse2) > 1)
-        {
-         echo "&harr; est un ami mutuel";
-        }
-     elseif ($reponse1)
-      {
-       echo "&larr; vous le suivez";
-      }
-     elseif ($reponse2)
-   {
-      echo "$rarr; vous suit";
-      $follow = "réciproque"; 
-    } 
-    if (!$reponse1)
-     {
-       echo " [<a href='members.php?add=".$donnees['username']."'>$follow</a>]";
-    }
-     else
-    {
-      echo " [<a href='members.php?add=".$donnees['username']."'>Suprimmer</a>]";
-    }
-   }
- }
-
- Ajouter ou supprimer un ami
-
-if (isset($_GET['add']))
- {
-  $add = htmlspecialchars(($_GET['add']));
-  $req = $this->db->query("SELECT * FROM amis WHERE utilisateur1 = '$add' AND utilisateur2 = '$user'");
+  $add = htmlspecialchars(($tab[1]));
+  $req = $bdd->query("SELECT * FROM amis WHERE utilisateur1 = '" . $tab[1] . "' AND utilisateur2 = '" . $_SESSION['user']->id . "'");
   $reponse = $req->fetch(PDO::FETCH_ASSOC);
 
   if (!$reponse)
  {
-   $req = $this->db->query("INSERT INTO amis VALUES ('$add', '$user')");
+   $req = $bdd->query("INSERT INTO amis VALUES ('" . $tab[1] . "', '" . $_SESSION['user']->id . "')");
+ }}
+  else if (isset($tab[0]) && $tab[0] == 'remove')
+  {   $remove = htmlspecialchars($tab[1]);
+   $req = $bdd->query("DELETE FROM amis WHERE utilisateur1 = '" . $tab[1] . "' AND utilisateur2 = '" . $_SESSION['user']->id . "'");
   }
-  elseif (isset($_GET['remove']))
-  {   $remove = htmlspecialchars(($_GET['remove']));
-   $req = $this->db->query("DELETE FROM amis WHERE utilisateur1 = '$remove' AND utilisateur2 = '$user'");
-}
+    
+    $req = $bdd->query("SELECT prenom, nom, id FROM utilisateur ORDER BY id");
+    $donnees = $req->fetchAll(PDO::FETCH_ASSOC);
+
+    $display = "";
+    
+   foreach ($donnees as $key)
+ {
+     if ($key['prenom'] == $_SESSION['user']->prenom)
+         {
+          continue;
+          }
+    $display = $display . "<li><a href='". WEBROOT . "profil/display&" . $key['id'] . "'>" . $key['prenom'] . " " . $key['nom'] . "</a>";
+      $follow = "Suivre";
+
+      $req1 = $bdd->query("SELECT * FROM amis WHERE utilisateur1 = '" . $key['id'] . "' AND utilisateur2 = '" . $_SESSION['user']->id . "'");
+       $reponse1 = $req1->rowCount();
+
+      $req2 = $bdd->query("SELECT * FROM amis WHERE utilisateur1 = '" . $_SESSION['user']->id . "' AND utilisateur2 = '" . $key['id'] . "'");
+      $reponse2 = $req2->rowCount();
+
+         if (($reponse1 + $reponse2) > 1)
+        {
+         $display = $display . "&harr; est un ami mutuel";
+        }
+     elseif ($reponse1)
+      {
+       $display = $display . "&larr; vous le suivez";
+      }
+     elseif ($reponse2)
+   {
+      $display = $display . "$rarr; vous suit";
+    } 
+    if (!$reponse1)
+     {
+       $display = $display . " <a href='". WEBROOT ."friends/friend&add/" . $key['id'] . "'><button class='button'>follow</button></a></li>";
+    }
+     else
+    {        
+      $display = $display . " <a href='". WEBROOT ."friends/friend&remove/" . $key['id'] . "'><button class='button'>Suprimmer</button></a></li>";
+    }
+   }
+   $this->renderPage($display);
  }
+
+
  }
 ?>
 

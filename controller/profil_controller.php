@@ -48,14 +48,14 @@ Class profil
 
     function display($tab)
     {
-
-        if (!isset($tab) || !isset($tab[0])) {
+        if (!isset($tab) && !isset($tab[0])) {
             $profil = new profil;
             $profil->index();
         } else {
             $db = new userDatabase();
-            $user = $db->getUserById($_SESSION['id']);
+            $user = $db->getUserById($tab[0]);
             $wall = $this->getWall($tab[0], $db);
+            echo "go back";
             $this->renderPage('display.twig', $user, $wall);
 
         }
