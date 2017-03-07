@@ -1868,3 +1868,27 @@
 			}
 
 	}
+
+#header-wrapper {
+    background: #3B4346 url("images/bg03.jpg");
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+    border-bottom: none;
+    box-shadow: none;
+}
+
+#header nav a {
+    color: #3B4346;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+#header nav a:hover {
+    color: #3B4346;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+#header {
+    min-height: 70px;
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    padding: 0px;
+}

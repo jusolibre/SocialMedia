@@ -49,13 +49,15 @@ Class profil
     function display($tab)
     {
         if (!isset($tab) && !isset($tab[0])) {
+
             $profil = new profil;
             $profil->index();
+
         } else {
+
             $db = new userDatabase();
             $user = $db->getUserById($tab[0]);
             $wall = $this->getWall($tab[0], $db);
-            echo "go back";
             $this->renderPage('display.twig', $user, $wall);
 
         }
@@ -68,7 +70,6 @@ Class profil
         $wall = [];
         $i = 0;
         foreach ($messages as $message) {
-            echo "<br>" . $message['id_utilisateur'] . "<br>";
             $tmpTab = [
                 "user" => $db->getUserById($message['id_utilisateur']),
                 "message" => $message

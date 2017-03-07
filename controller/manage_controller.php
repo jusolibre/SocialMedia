@@ -19,7 +19,6 @@ Class manage {
     }
 /*    public function uploadImg()
     {
-        var_dump($_FILES);
         $imgProfile ="imgProfile/";
         $chemin = ROOT . $imgProfile . $_SESSION['id'] . '.svg';
         echo $chemin;
