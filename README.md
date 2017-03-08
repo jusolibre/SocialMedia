@@ -1,4 +1,4 @@
-# SocielMedia
+# SocialMedia
 Project Réseau Social, travaille avec Brahim et Vincent
 
 Activer le mode rewrite sur apache 2 :
